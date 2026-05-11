@@ -12,7 +12,7 @@ export function WelcomeSection() {
           <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-md mx-auto lg:mx-0">
             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/pastor-couple.jpg"
+                src="/images/pastor-couple.webp"
                 alt={PASTORS_NAMES}
                 fill
                 className="object-cover"

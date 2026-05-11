@@ -62,7 +62,7 @@ export function Header() {
           <Link href="/" className="flex items-center gap-2 min-w-0">
             <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
               <Image
-                src="/alef-clean.png"
+                src="/alef-clean.webp"
                 alt="Logo Somos la Voz"
                 fill
                 className="object-cover"

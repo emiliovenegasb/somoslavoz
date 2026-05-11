@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   description: SITE_DESCRIPTION,
   icons: {
-    icon: [{ url: '/icon.png', type: 'image/png' }],
-    apple: [{ url: '/apple-icon.png', type: 'image/png' }],
+    icon: [{ url: '/icon.webp', type: 'image/webp' }],
+    apple: [{ url: '/apple-icon.webp', type: 'image/webp' }],
   },
 }
 

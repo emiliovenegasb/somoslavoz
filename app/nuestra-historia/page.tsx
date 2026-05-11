@@ -36,7 +36,7 @@ export default function NuestraHistoriaPage() {
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/images/fundadores.png"
+                    src="/images/fundadores.webp"
                     alt="Fundadores José Ignacio Fuentes y Graciela Donoso"
                     fill
                     className="object-cover"

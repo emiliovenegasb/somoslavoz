@@ -14,7 +14,7 @@ export function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-worship.jpg"
+          src="/images/hero-worship.webp"
           alt="Servicio de adoración"
           fill
           className="object-cover"

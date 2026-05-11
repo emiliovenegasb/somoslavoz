@@ -57,7 +57,7 @@ export function WatchSection({
         <div id="radio" className="scroll-mt-24 rounded-2xl p-8 md:p-12 mb-16 relative overflow-hidden bg-foreground">
           <div className="absolute inset-0">
             <Image
-              src="/images/chileParaCristo.png"
+              src="/images/chileParaCristo.webp"
               alt="Chile para Cristo — programa de radio"
               fill
               className="object-cover object-center"

@@ -36,7 +36,7 @@ export default function LoQueCreemosPage() {
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/images/hero-worship.jpg"
+                    src="/images/hero-worship.webp"
                     alt="Congregación adorando a Dios"
                     fill
                     className="object-cover"

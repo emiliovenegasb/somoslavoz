@@ -3,15 +3,15 @@ import Image from "next/image"
 import { APPLE_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/site"
 
 const APP_SLIDES = [
-  "/images/app-slides/slide-1.png",
-  "/images/app-slides/slide-2.png",
-  "/images/app-slides/slide-3.png",
-  "/images/app-slides/slide-4.png",
-  "/images/app-slides/slide-5.png",
-  "/images/app-slides/slide-6.png",
-  "/images/app-slides/slide-7.png",
-  "/images/app-slides/slide-8.png",
-  "/images/app-slides/slide-9.png",
+  "/images/app-slides/slide-1.webp",
+  "/images/app-slides/slide-2.webp",
+  "/images/app-slides/slide-3.webp",
+  "/images/app-slides/slide-4.webp",
+  "/images/app-slides/slide-5.webp",
+  "/images/app-slides/slide-6.webp",
+  "/images/app-slides/slide-7.webp",
+  "/images/app-slides/slide-8.webp",
+  "/images/app-slides/slide-9.webp",
 ]
 const SLIDE_SECONDS = 3.2
 const TOTAL_ANIMATION_SECONDS = APP_SLIDES.length * SLIDE_SECONDS
@@ -53,7 +53,7 @@ export function AppDownloadSection() {
                     <div className="absolute inset-0 flex min-h-0 flex-1 flex-col items-center justify-end px-5 pb-11 pt-14 text-center">
                       <div className="mb-5 shrink-0 rounded-full p-[2px] ring-2 ring-white/90">
                         <Image
-                          src="/alef-clean.png"
+                          src="/alef-clean.webp"
                           alt="Logo Somos la Voz"
                           width={88}
                           height={88}
@@ -96,7 +96,7 @@ export function AppDownloadSection() {
                   aria-label="Descargar en App Store"
                 >
                   <Image
-                    src="/badge-app-store-clean.png"
+                    src="/badge-app-store-clean.webp"
                     alt=""
                     width={638}
                     height={214}
@@ -111,7 +111,7 @@ export function AppDownloadSection() {
                   aria-label="Descargar en Google Play"
                 >
                   <Image
-                    src="/badge-google-play-clean.png"
+                    src="/badge-google-play-clean.webp"
                     alt=""
                     width={424}
                     height={141}

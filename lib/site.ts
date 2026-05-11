@@ -145,9 +145,9 @@ const RECENT_MESSAGE_DEFAULTS = [
 
 /** Miniaturas por defecto (predica 1…3, orden izquierda → derecha) */
 const RECENT_MESSAGE_DEFAULT_THUMBNAILS = [
-  "/images/predica-1.png",
-  "/images/predica-2.png",
-  "/images/predica-3.png",
+  "/images/predica-1.webp",
+  "/images/predica-2.webp",
+  "/images/predica-3.webp",
 ] as const
 
 export type RecentMessageCardConfig = {
@@ -155,7 +155,7 @@ export type RecentMessageCardConfig = {
   speaker: string
   date: string
   duration: string
-  /** Ruta bajo `/public`, ej. `/images/predica-1.png` */
+  /** Ruta bajo `/public`, ej. `/images/predica-1.webp` */
   thumbnail: string
   /** Vacío = miniatura sin enlace */
   youtubeUrl: string

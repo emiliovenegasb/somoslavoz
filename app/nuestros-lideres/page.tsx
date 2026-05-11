@@ -37,7 +37,7 @@ export default function NuestrosLideresPage() {
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
                 <div className="relative aspect-[4/5] w-full">
                   <Image
-                    src="/images/pastor-couple.jpg"
+                    src="/images/pastor-couple.webp"
                     alt={PASTORS_NAMES}
                     fill
                     className="object-cover"
