@@ -7,29 +7,47 @@ const ministries = [
     title: "Ministerio de niños",
     description: "Un ambiente divertido y seguro donde los niños descubren el amor de Dios mediante enseñanzas y actividades apropiadas para su edad.",
     image: "/images/kids-ministry.webp",
-    href: "#kids",
+    href: "/ministerios/ninos",
     color: "bg-[#F97316]",
   },
   {
     title: "Ministerio juvenil",
     description: "Impulsamos a los adolescentes a crecer en la fe, formar amistades significativas y generar impacto en su generación.",
     image: "/images/youth-ministry.webp",
-    href: "#youth",
+    href: "/ministerios/jovenes",
     color: "bg-primary",
   },
   {
-    title: "Grupos de comunidad",
-    description: "Conecta con otras personas en grupos pequeños donde puedes construir relaciones duraderas y crecer juntos en la fe.",
-    image: "/images/community.webp",
-    href: "#groups",
-    color: "bg-accent",
+    title: "Jóvenes adultos",
+    description:
+      "Acompañamos esta etapa con fundamento bíblico y propósito: relaciones sanas, crecimiento en carácter y participación activa en la iglesia.",
+    image: "/images/jovenes-adultos.webp",
+    href: "/ministerios/jovenes-adultos",
+    color: "bg-[#7C3AED]",
   },
   {
-    title: "Equipos de voluntariado",
-    description: "Descubre tu propósito sirviendo a otros. Hay un lugar para que cada persona use sus dones únicos.",
-    image: "/images/volunteers.webp",
-    href: "#volunteers",
-    color: "bg-[#10B981]",
+    title: "Escogidas",
+    description:
+      "Grupo de mujeres que crece en fe y comunión por medio de enseñanza, oración y servicio dentro de la iglesia.",
+    image: "/images/escogidas.webp",
+    href: "/ministerios/escogidas",
+    color: "bg-[#EC4899]",
+  },
+  {
+    title: "Red de Hombres",
+    description:
+      "Espacio para que los hombres de la iglesia crezcan en fe, compañerismo y propósito a la luz de la Palabra de Dios.",
+    image: "/images/red-hombres.webp",
+    href: "/ministerios/red-hombres",
+    color: "bg-[#3B82F6]",
+  },
+  {
+    title: "Raíces",
+    description:
+      "Hombres y mujeres de 50 años en adelante: comunión, enseñanza y adoración para seguir arraigados en la fe y en la familia de la iglesia.",
+    image: "/images/raices.webp",
+    href: "/ministerios/raices",
+    color: "bg-[#B45309]",
   },
 ]
 

@@ -18,7 +18,7 @@ const TOTAL_ANIMATION_SECONDS = APP_SLIDES.length * SLIDE_SECONDS
 
 export function AppDownloadSection() {
   return (
-    <section className="bg-background py-12 sm:py-16">
+    <section id="app" className="scroll-mt-24 bg-background py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-sm border border-zinc-300/70 bg-neutral-200">
           <div className="relative grid gap-10 px-8 py-12 md:grid-cols-2 md:items-center md:gap-12 md:px-14">

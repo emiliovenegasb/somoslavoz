@@ -100,23 +100,24 @@ export function WatchSection({
           </div>
         </div>
 
-        {/* Recent Messages */}
-        <div className="text-center mb-12">
-          <span 
-            className="text-primary text-sm font-semibold tracking-widest uppercase"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Cuando quieras
-          </span>
-          <h2 
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
-            Mensajes recientes
-          </h2>
-        </div>
+        {/* Recent Messages — ancla #messages (Sermones en footer, Mensajes anteriores en menú) */}
+        <div id="messages" className="scroll-mt-24">
+          <div className="text-center mb-12">
+            <span
+              className="text-primary text-sm font-semibold tracking-widest uppercase"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Cuando quieras
+            </span>
+            <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
+              Mensajes recientes
+            </h2>
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
           {messages.map((message) => (
             <div 
               key={message.title}
@@ -177,6 +178,7 @@ export function WatchSection({
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
     </section>

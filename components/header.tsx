@@ -32,11 +32,12 @@ const navItems = [
     label: "Ministerios",
     href: "#ministries",
     children: [
-      { label: "Niños", href: "#kids" },
-      { label: "Jóvenes", href: "#youth" },
-      { label: "Jóvenes adultos", href: "#young-adults" },
-      { label: "Grupos", href: "#groups" },
-      { label: "Voluntarios", href: "#volunteers" },
+      { label: "Niños", href: "/ministerios/ninos" },
+      { label: "Jóvenes", href: "/ministerios/jovenes" },
+      { label: "Jóvenes adultos", href: "/ministerios/jovenes-adultos" },
+      { label: "Escogidas", href: "/ministerios/escogidas" },
+      { label: "Red de Hombres", href: "/ministerios/red-hombres" },
+      { label: "Raíces", href: "/ministerios/raices" },
     ],
   },
   {
@@ -44,7 +45,7 @@ const navItems = [
     href: "#watch",
     children: [
       { label: "Cultos en vivo", href: CULTOS_EN_VIVO_HREF },
-      { label: "Mensajes anteriores", href: "#messages" },
+      { label: "Mensajes anteriores", href: "/#messages" },
       { label: "Podcasts", href: PODCASTS_HREF },
     ],
   },

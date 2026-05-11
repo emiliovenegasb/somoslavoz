@@ -31,18 +31,22 @@ const footerLinks = {
     { label: "Contáctanos", href: "#contact" },
   ],
   ministries: [
-    { label: "Niños", href: "#kids" },
-    { label: "Jóvenes", href: "#youth" },
-    { label: "Jóvenes adultos", href: "#young-adults" },
-    { label: "Misiones", href: "#missions" },
-    { label: "Alcance", href: "#outreach" },
+    { label: "Niños", href: "/ministerios/ninos" },
+    { label: "Jóvenes", href: "/ministerios/jovenes" },
+    { label: "Jóvenes adultos", href: "/ministerios/jovenes-adultos" },
+    { label: "Escogidas", href: "/ministerios/escogidas" },
+    { label: "Red de Hombres", href: "/ministerios/red-hombres" },
+    { label: "Raíces", href: "/ministerios/raices" },
   ],
-  resources: [
-    { label: "Sermones", href: "#sermons" },
-    { label: "Podcasts", href: "#podcasts" },
-    { label: "Devocionales", href: "#devotionals" },
-    { label: "App", href: "#app" },
-  ],
+}
+
+function footerResourceLinks() {
+  return [
+    { label: "Sermones", href: "/#messages" },
+    { label: "Podcasts", href: SOCIAL_SPOTIFY_URL || "#podcasts" },
+    { label: "Radio", href: "/#radio" },
+    { label: "App", href: "/#app" },
+  ] as const
 }
 
 const socialNav = [
@@ -165,14 +169,25 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4" style={{ fontFamily: 'var(--font-heading)' }}>Recursos</h4>
             <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
+              {footerResourceLinks().map((link) => (
                 <li key={link.label}>
-                  <Link 
-                    href={link.href}
-                    className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {/^https?:\/\//i.test(link.href) ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
