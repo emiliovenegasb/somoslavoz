@@ -121,28 +121,6 @@ const radioListenRaw = trim(process.env.NEXT_PUBLIC_RADIO_LISTEN_URL) ?? ""
 export const RADIO_LISTEN_URL =
   radioListenRaw.replace(/^["']|["']$/g, "") || ""
 
-/** Textos por defecto para “Mensajes recientes” si no hay variables en .env */
-const RECENT_MESSAGE_DEFAULTS = [
-  {
-    title: "Encontrando paz en tiempos inciertos",
-    speaker: "Pastor Juan Pérez",
-    date: "7 de abril de 2026",
-    duration: "42 min",
-  },
-  {
-    title: "El poder de la fe",
-    speaker: "Pastora Lisa Pérez",
-    date: "31 de marzo de 2026",
-    duration: "38 min",
-  },
-  {
-    title: "Caminando en propósito",
-    speaker: "Pastor Juan Pérez",
-    date: "24 de marzo de 2026",
-    duration: "45 min",
-  },
-] as const
-
 /** Miniaturas por defecto (predica 1…3, orden izquierda → derecha) */
 const RECENT_MESSAGE_DEFAULT_THUMBNAILS = [
   "/images/predica-1.webp",
@@ -163,7 +141,7 @@ export type RecentMessageCardConfig = {
 
 /**
  * Tarjetas “Mensajes recientes” (orden izquierda → derecha).
- * Títulos y metadatos: `NEXT_PUBLIC_RECENT_MESSAGE_{1|2|3}_{TITLE|SPEAKER|DATE|DURATION}`.
+ * Título, orador, fecha y duración: `NEXT_PUBLIC_RECENT_MESSAGE_{1|2|3}_{TITLE|SPEAKER|DATE|DURATION}` (opcionales; vacíos = solo miniatura).
  * Imagen: `NEXT_PUBLIC_RECENT_MESSAGE_{1|2|3}_IMAGE` (opcional).
  * Video: `NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_{1|2|3}_URL`.
  *
@@ -172,54 +150,30 @@ export type RecentMessageCardConfig = {
 export function getRecentMessageCards(): RecentMessageCardConfig[] {
   return [
     {
-      title:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_TITLE) ||
-        RECENT_MESSAGE_DEFAULTS[0].title,
-      speaker:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_SPEAKER) ||
-        RECENT_MESSAGE_DEFAULTS[0].speaker,
-      date:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_DATE) ||
-        RECENT_MESSAGE_DEFAULTS[0].date,
-      duration:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_DURATION) ||
-        RECENT_MESSAGE_DEFAULTS[0].duration,
+      title: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_TITLE) || "",
+      speaker: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_SPEAKER) || "",
+      date: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_DATE) || "",
+      duration: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_DURATION) || "",
       thumbnail:
         trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_IMAGE) ||
         RECENT_MESSAGE_DEFAULT_THUMBNAILS[0],
       youtubeUrl: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_1_URL) || "",
     },
     {
-      title:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_TITLE) ||
-        RECENT_MESSAGE_DEFAULTS[1].title,
-      speaker:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_SPEAKER) ||
-        RECENT_MESSAGE_DEFAULTS[1].speaker,
-      date:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_DATE) ||
-        RECENT_MESSAGE_DEFAULTS[1].date,
-      duration:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_DURATION) ||
-        RECENT_MESSAGE_DEFAULTS[1].duration,
+      title: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_TITLE) || "",
+      speaker: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_SPEAKER) || "",
+      date: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_DATE) || "",
+      duration: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_DURATION) || "",
       thumbnail:
         trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_IMAGE) ||
         RECENT_MESSAGE_DEFAULT_THUMBNAILS[1],
       youtubeUrl: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_2_URL) || "",
     },
     {
-      title:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_TITLE) ||
-        RECENT_MESSAGE_DEFAULTS[2].title,
-      speaker:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_SPEAKER) ||
-        RECENT_MESSAGE_DEFAULTS[2].speaker,
-      date:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_DATE) ||
-        RECENT_MESSAGE_DEFAULTS[2].date,
-      duration:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_DURATION) ||
-        RECENT_MESSAGE_DEFAULTS[2].duration,
+      title: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_TITLE) || "",
+      speaker: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_SPEAKER) || "",
+      date: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_DATE) || "",
+      duration: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_DURATION) || "",
       thumbnail:
         trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_IMAGE) ||
         RECENT_MESSAGE_DEFAULT_THUMBNAILS[2],

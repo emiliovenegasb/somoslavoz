@@ -118,9 +118,9 @@ export function WatchSection({
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-          {messages.map((message) => (
-            <div 
-              key={message.title}
+          {messages.map((message, index) => (
+            <div
+              key={`${message.thumbnail}-${index}`}
               className="group"
             >
               {/* Thumbnail — enlace al capítulo en YouTube (URLs en .env) */}
@@ -130,7 +130,11 @@ export function WatchSection({
                   target="_blank"
                   rel="noopener noreferrer"
                   className={thumbnailFrameClass}
-                  aria-label={`Ver en YouTube: ${message.title}`}
+                  aria-label={
+                    message.title
+                      ? `Ver en YouTube: ${message.title}`
+                      : "Ver mensaje en YouTube"
+                  }
                 >
                   <MessageThumbnail
                     src={message.thumbnail}
@@ -147,7 +151,7 @@ export function WatchSection({
                 <div className={`${thumbnailFrameClass} cursor-default`}>
                   <MessageThumbnail
                     src={message.thumbnail}
-                    alt={message.title}
+                    alt={message.title || "Mensaje reciente"}
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-foreground/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -158,24 +162,37 @@ export function WatchSection({
                 </div>
               )}
 
-              {/* Info */}
-              <h3 
-                className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                {message.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-2">{message.speaker}</p>
-              <div className="flex items-center gap-4 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-3 w-3" />
-                  {message.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3 w-3" />
-                  {message.duration}
-                </span>
-              </div>
+              {message.title || message.speaker || message.date || message.duration ? (
+                <div className="mt-4">
+                  {message.title ? (
+                    <h3
+                      className="text-lg font-bold text-foreground group-hover:text-primary transition-colors mb-2"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {message.title}
+                    </h3>
+                  ) : null}
+                  {message.speaker ? (
+                    <p className="text-muted-foreground text-sm mb-2">{message.speaker}</p>
+                  ) : null}
+                  {message.date || message.duration ? (
+                    <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+                      {message.date ? (
+                        <span className="flex items-center gap-1">
+                          <Calendar className="h-3 w-3" aria-hidden />
+                          {message.date}
+                        </span>
+                      ) : null}
+                      {message.duration ? (
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-3 w-3" aria-hidden />
+                          {message.duration}
+                        </span>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
           ))}
           </div>
