@@ -23,6 +23,15 @@ function MessageThumbnail({
   alt: string
   className: string
 }) {
+  if (!src.trim()) {
+    return (
+      <div
+        className={`absolute inset-0 size-full bg-muted ${className}`}
+        role="img"
+        aria-label={alt || "Sin miniatura"}
+      />
+    )
+  }
   if (isRemoteImageSrc(src)) {
     return (
       <img
@@ -120,7 +129,7 @@ export function WatchSection({
           <div className="grid md:grid-cols-3 gap-8">
           {messages.map((message, index) => (
             <div
-              key={`${message.thumbnail}-${index}`}
+              key={`recent-message-${index}`}
               className="group"
             >
               {/* Thumbnail — enlace al capítulo en YouTube (URLs en .env) */}

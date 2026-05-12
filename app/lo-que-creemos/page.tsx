@@ -2,6 +2,11 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BELIEFS_PARAGRAPHS } from "@/lib/beliefs"
+import { LO_QUE_CREEMOS_IMAGE } from "@/lib/site"
+
+function isRemoteImageSrc(src: string) {
+  return /^https?:\/\//i.test(src)
+}
 
 export default function LoQueCreemosPage() {
   return (
@@ -35,12 +40,23 @@ export default function LoQueCreemosPage() {
             <aside className="lg:sticky lg:top-24">
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
                 <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src="/images/hero-worship.webp"
-                    alt="Congregación adorando a Dios"
-                    fill
-                    className="object-cover"
-                  />
+                  {isRemoteImageSrc(LO_QUE_CREEMOS_IMAGE) ? (
+                    <img
+                      src={LO_QUE_CREEMOS_IMAGE}
+                      alt="Culto y alabanza — nuestra fe en Jesucristo"
+                      className="absolute inset-0 size-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <Image
+                      src={LO_QUE_CREEMOS_IMAGE}
+                      alt="Culto y alabanza — nuestra fe en Jesucristo"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                    />
+                  )}
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
                   Nuestra fe está centrada en Jesucristo y en la Palabra de Dios.

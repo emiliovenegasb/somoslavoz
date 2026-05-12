@@ -1,26 +1,28 @@
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-import Link from "next/link"
+import { MinistryRouteLink } from "@/components/ministry-route-link"
 
 const ministries = [
   {
-    title: "Ministerio de niños",
-    description: "Un ambiente divertido y seguro donde los niños descubren el amor de Dios mediante enseñanzas y actividades apropiadas para su edad.",
+    title: "Kids",
+    description:
+      "Un ambiente divertido y seguro donde los niños descubren el amor de Dios.",
     image: "/images/kids-ministry.webp",
     href: "/ministerios/ninos",
     color: "bg-[#F97316]",
   },
   {
-    title: "Ministerio juvenil",
-    description: "Impulsamos a los adolescentes a crecer en la fe, formar amistades significativas y generar impacto en su generación.",
+    title: "Teens",
+    description:
+      "Impulsamos a los adolescentes a crecer en la fe y a formar amistades significativas.",
     image: "/images/youth-ministry.webp",
     href: "/ministerios/jovenes",
     color: "bg-primary",
   },
   {
-    title: "Jóvenes adultos",
+    title: "Jovenes",
     description:
-      "Acompañamos esta etapa con fundamento bíblico y propósito: relaciones sanas, crecimiento en carácter y participación activa en la iglesia.",
+      "Acompañamos esta etapa con fundamento bíblico y propósito: relaciones sanas, crecimiento en carácter y participación en la iglesia.",
     image: "/images/jovenes-adultos.webp",
     href: "/ministerios/jovenes-adultos",
     color: "bg-[#7C3AED]",
@@ -28,7 +30,7 @@ const ministries = [
   {
     title: "Escogidas",
     description:
-      "Grupo de mujeres que crece en fe y comunión por medio de enseñanza, oración y servicio dentro de la iglesia.",
+      "Grupo de mujeres que crece en fe y comunión por medio de enseñanzas, oración y servicio dentro de la iglesia.",
     image: "/images/escogidas.webp",
     href: "/ministerios/escogidas",
     color: "bg-[#EC4899]",
@@ -44,7 +46,7 @@ const ministries = [
   {
     title: "Raíces",
     description:
-      "Hombres y mujeres de 50 años en adelante: comunión, enseñanza y adoración para seguir arraigados en la fe y en la familia de la iglesia.",
+      "Hombres y mujeres de 50 años en adelante: comunión, enseñanza y adoración.",
     image: "/images/raices.webp",
     href: "/ministerios/raices",
     color: "bg-[#B45309]",
@@ -53,7 +55,7 @@ const ministries = [
 
 export function Ministries() {
   return (
-    <section className="py-20 lg:py-32 bg-muted" id="ministries">
+    <section className="scroll-mt-24 py-20 lg:py-32 bg-muted" id="ministries">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span 
@@ -75,7 +77,7 @@ export function Ministries() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ministries.map((ministry) => (
-            <Link 
+            <MinistryRouteLink
               key={ministry.title}
               href={ministry.href}
               className="group relative bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
@@ -104,7 +106,7 @@ export function Ministries() {
                   <ArrowRight className="h-4 w-4" />
                 </div>
               </div>
-            </Link>
+            </MinistryRouteLink>
           ))}
         </div>
       </div>

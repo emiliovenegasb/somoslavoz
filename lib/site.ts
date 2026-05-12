@@ -84,6 +84,13 @@ export const SITE_TAGLINE =
   trim(process.env.NEXT_PUBLIC_SITE_TAGLINE) ||
   "Un lugar donde la fe cobra vida, la comunidad se construye y todos son bienvenidos."
 
+/**
+ * Imagen lateral en `/lo-que-creemos`.
+ * URL (p. ej. Cloudinary) vía `NEXT_PUBLIC_LO_QUE_CREEMOS_IMAGE`, o archivo en `public/images/lo-que-creemos.png`.
+ */
+export const LO_QUE_CREEMOS_IMAGE =
+  trim(process.env.NEXT_PUBLIC_LO_QUE_CREEMOS_IMAGE) || "/images/lo-que-creemos.png"
+
 /** Teléfono de contacto (visible si no está vacío) */
 export const CONTACT_PHONE = trim(process.env.NEXT_PUBLIC_CONTACT_PHONE) || ""
 
@@ -121,19 +128,12 @@ const radioListenRaw = trim(process.env.NEXT_PUBLIC_RADIO_LISTEN_URL) ?? ""
 export const RADIO_LISTEN_URL =
   radioListenRaw.replace(/^["']|["']$/g, "") || ""
 
-/** Miniaturas por defecto (predica 1…3, orden izquierda → derecha) */
-const RECENT_MESSAGE_DEFAULT_THUMBNAILS = [
-  "/images/predica-1.webp",
-  "/images/predica-2.webp",
-  "/images/predica-3.webp",
-] as const
-
 export type RecentMessageCardConfig = {
   title: string
   speaker: string
   date: string
   duration: string
-  /** Ruta bajo `/public`, ej. `/images/predica-1.webp` */
+  /** Ruta bajo `/public` o URL HTTPS; vacío = placeholder en la UI */
   thumbnail: string
   /** Vacío = miniatura sin enlace */
   youtubeUrl: string
@@ -141,44 +141,30 @@ export type RecentMessageCardConfig = {
 
 /**
  * Tarjetas “Mensajes recientes” (orden izquierda → derecha).
- * Título, orador, fecha y duración: `NEXT_PUBLIC_RECENT_MESSAGE_{1|2|3}_{TITLE|SPEAKER|DATE|DURATION}` (opcionales; vacíos = solo miniatura).
- * Imagen: `NEXT_PUBLIC_RECENT_MESSAGE_{1|2|3}_IMAGE` (opcional).
+ * Título, orador, fecha y duración: `NEXT_PUBLIC_RECENT_MESSAGE_{1|2|3}_{TITLE|SPEAKER|DATE|DURATION}` (vacío si no defines la variable).
+ * Imagen: `NEXT_PUBLIC_RECENT_MESSAGE_{1|2|3}_IMAGE`.
  * Video: `NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_{1|2|3}_URL`.
  *
  * Usar esta función (no un array estático) para que `.env` se aplique en cada request.
  */
+function recentMessageFromEnv(n: 1 | 2 | 3): RecentMessageCardConfig {
+  const prefix = `NEXT_PUBLIC_RECENT_MESSAGE_${n}_`
+  return {
+    title: trim(process.env[`${prefix}TITLE`]) || "",
+    speaker: trim(process.env[`${prefix}SPEAKER`]) || "",
+    date: trim(process.env[`${prefix}DATE`]) || "",
+    duration: trim(process.env[`${prefix}DURATION`]) || "",
+    thumbnail: trim(process.env[`${prefix}IMAGE`]) || "",
+    youtubeUrl:
+      trim(process.env[`NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_${n}_URL`]) || "",
+  }
+}
+
 export function getRecentMessageCards(): RecentMessageCardConfig[] {
   return [
-    {
-      title: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_TITLE) || "",
-      speaker: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_SPEAKER) || "",
-      date: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_DATE) || "",
-      duration: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_DURATION) || "",
-      thumbnail:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_1_IMAGE) ||
-        RECENT_MESSAGE_DEFAULT_THUMBNAILS[0],
-      youtubeUrl: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_1_URL) || "",
-    },
-    {
-      title: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_TITLE) || "",
-      speaker: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_SPEAKER) || "",
-      date: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_DATE) || "",
-      duration: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_DURATION) || "",
-      thumbnail:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_2_IMAGE) ||
-        RECENT_MESSAGE_DEFAULT_THUMBNAILS[1],
-      youtubeUrl: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_2_URL) || "",
-    },
-    {
-      title: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_TITLE) || "",
-      speaker: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_SPEAKER) || "",
-      date: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_DATE) || "",
-      duration: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_DURATION) || "",
-      thumbnail:
-        trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_3_IMAGE) ||
-        RECENT_MESSAGE_DEFAULT_THUMBNAILS[2],
-      youtubeUrl: trim(process.env.NEXT_PUBLIC_RECENT_MESSAGE_VIDEO_3_URL) || "",
-    },
+    recentMessageFromEnv(1),
+    recentMessageFromEnv(2),
+    recentMessageFromEnv(3),
   ]
 }
 

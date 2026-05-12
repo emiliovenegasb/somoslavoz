@@ -12,14 +12,12 @@ export const dynamic = "force-dynamic"
 import { GiveSection } from "@/components/give-section"
 import { AppDownloadSection } from "@/components/app-download-section"
 import { Footer } from "@/components/footer"
-import { HomeScrollRestore } from "@/components/home-scroll-restore"
 
 export default function Home() {
   const recentMessages = getRecentMessageCards()
 
   return (
     <main className="min-h-screen">
-      <HomeScrollRestore />
       <Header />
       <Hero />
       <WelcomeSection />

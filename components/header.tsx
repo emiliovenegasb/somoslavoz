@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { DONATE_FLOW_URL, SOCIAL_SPOTIFY_URL, SOCIAL_YOUTUBE_URL } from "@/lib/site"
 import { UbicacionAnchor } from "@/components/ubicacion-link"
+import { MinistryRouteLink } from "@/components/ministry-route-link"
 
 const CULTOS_EN_VIVO_HREF = SOCIAL_YOUTUBE_URL || "/#radio"
 const PODCASTS_HREF = SOCIAL_SPOTIFY_URL || "#podcasts"
@@ -98,6 +99,13 @@ export function Header() {
                           >
                             {child.label}
                           </a>
+                        ) : child.href.startsWith("/ministerios/") ? (
+                          <MinistryRouteLink
+                            href={child.href}
+                            className="text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10"
+                          >
+                            {child.label}
+                          </MinistryRouteLink>
                         ) : (
                           <Link
                             href={child.href}
@@ -165,19 +173,38 @@ export function Header() {
                 </Link>
                 {item.children && (
                   <div className="pl-4 space-y-2">
-                    {item.children.map((child) => (
-                      <Link
-                        key={child.label}
-                        href={child.href}
-                        className="block py-1 text-sm text-primary-foreground/60 hover:text-primary-foreground"
-                        onClick={() => setIsOpen(false)}
-                        {...(child.href.startsWith("http")
-                          ? { target: "_blank" as const, rel: "noopener noreferrer" }
-                          : {})}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    {item.children.map((child) =>
+                      child.href.startsWith("http") ? (
+                        <a
+                          key={child.label}
+                          href={child.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block py-1 text-sm text-primary-foreground/60 hover:text-primary-foreground"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {child.label}
+                        </a>
+                      ) : child.href.startsWith("/ministerios/") ? (
+                        <MinistryRouteLink
+                          key={child.label}
+                          href={child.href}
+                          className="block py-1 text-sm text-primary-foreground/60 hover:text-primary-foreground"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {child.label}
+                        </MinistryRouteLink>
+                      ) : (
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          className="block py-1 text-sm text-primary-foreground/60 hover:text-primary-foreground"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ),
+                    )}
                   </div>
                 )}
               </div>

@@ -1,12 +1,12 @@
-import { Heart, Globe, Users } from "lucide-react"
+import { Church, Globe, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DONATE_FLOW_URL } from "@/lib/site"
 
 const impactStats = [
   {
-    icon: Heart,
-    stat: "50,000+",
-    label: "Vidas impactadas",
+    icon: Church,
+    stat: "75+",
+    label: "Iglesias en Chile, Argentina y Perú",
   },
   {
     icon: Globe,
@@ -41,7 +41,18 @@ export function GiveSection() {
             Cada ofrenda nos ayuda a alcanzar a más personas con esperanza, servir a nuestra comunidad
             y compartir el mensaje del amor de Dios al mundo.
           </p>
-          
+
+          <blockquote className="mx-auto mb-10 max-w-2xl border-l-4 border-accent/50 pl-5 text-left sm:pl-6">
+            <p className="text-primary-foreground/90 text-base leading-relaxed italic sm:text-lg">
+              <span className="not-italic font-semibold text-primary-foreground">15 </span>
+              ¿Y cómo predicarán si no fueren enviados? Como está escrito: ¡Cuán hermosos son los pies
+              de los que anuncian la paz, de los que anuncian buenas nuevas!
+            </p>
+            <cite className="mt-3 block text-sm font-medium not-italic text-primary-foreground/65">
+              Romanos 10:15 — Reina-Valera 1960
+            </cite>
+          </blockquote>
+
           <div className="flex justify-center mb-16">
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8" asChild>
               <a href={DONATE_FLOW_URL} target="_blank" rel="noopener noreferrer">

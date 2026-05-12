@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { HomeScrollRestore } from '@/components/home-scroll-restore'
 import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site'
 import './globals.css'
 
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${montserrat.variable} ${openSans.variable} bg-background`}>
       <body className="font-sans antialiased">
+        <HomeScrollRestore />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

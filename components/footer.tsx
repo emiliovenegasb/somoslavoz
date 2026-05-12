@@ -3,6 +3,7 @@ import Image from "next/image"
 import { Facebook, Instagram, Youtube, Twitter, Podcast, MapPin, Phone, Mail } from "lucide-react"
 import { UbicacionAnchor } from "@/components/ubicacion-link"
 import { FooterFormDialog } from "@/components/footer-form-dialog"
+import { MinistryRouteLink } from "@/components/ministry-route-link"
 import { UBICACION_ID } from "@/lib/anchors"
 import {
   CONTACT_EMAIL,
@@ -43,7 +44,7 @@ const footerLinks = {
 function footerResourceLinks() {
   return [
     { label: "Sermones", href: "/#messages" },
-    { label: "Podcasts", href: SOCIAL_SPOTIFY_URL || "#podcasts" },
+    { label: "Prédicas", href: SOCIAL_SPOTIFY_URL || "#podcasts" },
     { label: "Radio", href: "/#radio" },
     { label: "App", href: "/#app" },
   ] as const
@@ -155,12 +156,12 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.ministries.map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <MinistryRouteLink
                     href={link.href}
                     className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </MinistryRouteLink>
                 </li>
               ))}
             </ul>
