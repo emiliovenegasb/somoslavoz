@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-const KIDS_AGE_RANGE = "4 a 13 años"
+const KIDS_AGE_RANGE = "4 a 12 años"
 
 const KIDS_PARAGRAPHS = [
   "En el Ministerio de Niños los pequeños aprenden el amor de Dios en un ambiente divertido, seguro y lleno de alegría.",
@@ -29,7 +29,7 @@ export default function MinisterioNinosPage() {
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Niños
+                Niños <span className="text-primary">Kids</span>
               </h1>
 
               <div className="mb-8 flex flex-wrap items-center gap-3">

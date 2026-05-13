@@ -66,28 +66,40 @@ export function FooterFormDialog({ variant, className }: FooterFormDialogProps) 
     }
 
     try {
-      if (variant === "prayer") {
-        const response = await fetch("/api/prayer-request", {
+      const response = await fetch(
+        variant === "prayer" ? "/api/prayer-request" : "/api/contact",
+        {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
-        })
-        if (!response.ok) {
-          const data = (await response.json().catch(() => ({}))) as {
-            error?: string
-          }
-          throw new Error(data.error || "No se pudo enviar la petición.")
+        },
+      )
+      if (!response.ok) {
+        const data = (await response.json().catch(() => ({}))) as {
+          error?: string
         }
+        throw new Error(
+          data.error ||
+            (variant === "prayer"
+              ? "No se pudo enviar la petición."
+              : "No se pudo enviar el mensaje."),
+        )
       }
 
       setSent(true)
       form.reset()
     } catch (error) {
-      const fallback =
-        variant === "prayer"
-          ? "No se pudo enviar tu petición por ahora. Intenta nuevamente."
-          : "No se pudo enviar tu mensaje por ahora. Intenta nuevamente."
-      setErrorMessage(error instanceof Error ? error.message : fallback)
+      let message: string
+      if (error instanceof TypeError && error.message.includes("fetch")) {
+        message = "Sin conexión. Comprueba tu red e intenta de nuevo."
+      } else {
+        const fallback =
+          variant === "prayer"
+            ? "No se pudo enviar tu petición por ahora. Intenta nuevamente."
+            : "No se pudo enviar tu mensaje por ahora. Intenta nuevamente."
+        message = error instanceof Error ? error.message : fallback
+      }
+      setErrorMessage(message)
     } finally {
       setIsSubmitting(false)
     }

@@ -36,15 +36,13 @@ export function WelcomeSection() {
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mt-4 mb-6 leading-tight"
               style={{ fontFamily: 'var(--font-heading)' }}
             >
-              Una palabra de
+              Unas palabras de
               <br />
               <span className="text-primary">nuestros pastores</span>
             </h2>
             
             <blockquote className="text-lg text-muted-foreground leading-relaxed mb-6 border-l-4 border-primary pl-6 italic">
-              &ldquo;Creemos que cada persona tiene un propósito, y estamos aquí para ayudarte a descubrir el tuyo.
-              En Templo Central encontrarás un lugar al que perteneces, donde tu fe puede crecer
-              y donde puedes marcar una diferencia.&rdquo;
+              &ldquo;Creemos que cada persona tiene un propósito, y estamos aquí para ayudarte a descubrir el tuyo. En Templo Central encontrarás un lugar al que pertenecer, donde tu fe puede crecer y donde puedes marcar una diferencia.&rdquo;
             </blockquote>
 
             <p className="text-muted-foreground leading-relaxed mb-8">

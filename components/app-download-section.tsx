@@ -80,7 +80,7 @@ export function AppDownloadSection() {
                 className="mb-3 text-3xl font-semibold text-zinc-800"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Descarga la App
+                Descarga nuestra App
               </h3>
               <p className="mb-6 text-base leading-relaxed text-zinc-600">
                 Mantente conectado con nuestra iglesia: transmisiones, mensajes, recursos y

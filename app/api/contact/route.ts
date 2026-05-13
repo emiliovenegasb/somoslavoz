@@ -14,26 +14,25 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           error:
-            "Petición de oración no configurada. Añade GOOGLE_SHEETS_WEBAPP_URL en el servidor.",
+            "El formulario de contacto no está configurado. Añade GOOGLE_SHEETS_WEBAPP_URL en el servidor.",
         },
         { status: 503 },
       )
     }
 
-    const lead = parsed.lead
     await appendLeadToGoogleSheet({
-      type: "prayer",
-      name: lead.name,
-      email: lead.email,
-      phone: lead.phone,
-      message: lead.message,
+      type: "contact",
+      name: parsed.lead.name,
+      email: parsed.lead.email,
+      phone: parsed.lead.phone,
+      message: parsed.lead.message,
     })
 
     return NextResponse.json({ ok: true })
   } catch (error) {
-    console.error("Error guardando petición de oración en Sheet:", error)
+    console.error("Error en contacto / Sheet:", error)
     return NextResponse.json(
-      { error: "No se pudo enviar la petición por ahora." },
+      { error: "No se pudo guardar tu mensaje por ahora. Intenta nuevamente." },
       { status: 500 },
     )
   }

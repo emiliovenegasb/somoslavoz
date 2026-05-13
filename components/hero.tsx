@@ -75,7 +75,7 @@ export function Hero() {
             <span className="text-primary-foreground/90 text-sm font-medium">Acompáñanos presencialmente o en línea</span>
           </div>
           <span className="text-primary-foreground/60">|</span>
-          <span className="text-primary-foreground text-sm font-semibold">Miércoles 19:30 y domingo 10:30 AM</span>
+          <span className="text-primary-foreground text-sm font-semibold">Miércoles 19:30 hrs. y domingo 10:30 hrs.</span>
         </div>
       </div>
 

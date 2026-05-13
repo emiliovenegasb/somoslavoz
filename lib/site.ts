@@ -57,12 +57,12 @@ const FALLBACK_DONATE =
 export const DONATE_FLOW_URL =
   trim(process.env.NEXT_PUBLIC_DONATE_FLOW_URL) || FALLBACK_DONATE
 
-/** Enlace App Store (sección "Descarga la App") */
+/** Enlace App Store (sección "Descarga nuestra App") */
 export const APPLE_STORE_URL =
   trim(process.env.NEXT_PUBLIC_APPLE_STORE_URL) ||
   "https://apps.apple.com/cl/app/somos-la-voz/id6593660269"
 
-/** Enlace Google Play (sección "Descarga la App") */
+/** Enlace Google Play (sección "Descarga nuestra App") */
 export const GOOGLE_PLAY_URL = trim(process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL) || "#"
 
 /** Nombre del ministerio / sitio */

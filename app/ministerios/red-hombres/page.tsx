@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-const RED_HOMBRES_AGE_RANGE = "15 años en adelante"
+const RED_HOMBRES_AGE_RANGE = "18 años en adelante"
 
 const RED_HOMBRES_PARAGRAPHS = [
   "La Red de Hombres es un espacio de la iglesia para crecer en fe, compañerismo y propósito según la Palabra de Dios.",

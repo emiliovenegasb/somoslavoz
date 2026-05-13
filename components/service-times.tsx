@@ -6,13 +6,13 @@ import { MAPS_GOOGLE_URL, MAPS_WAZE_URL, SITE_ADDRESS } from "@/lib/site"
 const services = [
   {
     day: "Miércoles",
-    times: ["19:30"],
+    times: ["19:30 hrs."],
     description: "De formación",
     icon: Clock,
   },
   {
     day: "Domingo",
-    times: ["10:30 AM"],
+    times: ["10:30 hrs."],
     description: "Celebración",
     icon: Calendar,
   },
@@ -33,7 +33,7 @@ export function ServiceTimes() {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Horarios de reunión
+            Horarios de reuniones
           </h2>
           <p className="text-primary-foreground/70 max-w-2xl mx-auto text-base sm:text-lg leading-snug">
             Nos encantaría conocerte. Acompáñanos presencialmente o mira en línea desde cualquier lugar.
