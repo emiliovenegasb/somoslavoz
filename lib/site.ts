@@ -86,10 +86,10 @@ export const SITE_TAGLINE =
 
 /**
  * Imagen lateral en `/lo-que-creemos`.
- * URL (p. ej. Cloudinary) vía `NEXT_PUBLIC_LO_QUE_CREEMOS_IMAGE`, o archivo en `public/images/lo-que-creemos.png`.
+ * URL (p. ej. Cloudinary) vía `NEXT_PUBLIC_LO_QUE_CREEMOS_IMAGE`, o archivo en `public/images/lo-que-creemos.webp`.
  */
 export const LO_QUE_CREEMOS_IMAGE =
-  trim(process.env.NEXT_PUBLIC_LO_QUE_CREEMOS_IMAGE) || "/images/lo-que-creemos.png"
+  trim(process.env.NEXT_PUBLIC_LO_QUE_CREEMOS_IMAGE) || "/images/lo-que-creemos.webp"
 
 /** Teléfono de contacto (visible si no está vacío) */
 export const CONTACT_PHONE = trim(process.env.NEXT_PUBLIC_CONTACT_PHONE) || ""
