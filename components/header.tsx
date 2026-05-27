@@ -11,12 +11,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { DONATE_FLOW_URL, SOCIAL_SPOTIFY_URL, SOCIAL_YOUTUBE_URL } from "@/lib/site"
+import { DONATE_FLOW_URL } from "@/lib/site"
 import { UbicacionAnchor } from "@/components/ubicacion-link"
-import { MinistryRouteLink } from "@/components/ministry-route-link"
-
-const CULTOS_EN_VIVO_HREF = SOCIAL_YOUTUBE_URL || "/#radio"
-const PODCASTS_HREF = SOCIAL_SPOTIFY_URL || "#podcasts"
+import { SegmentRouteLink } from "@/components/segment-route-link"
 
 const navItems = [
   {
@@ -30,24 +27,15 @@ const navItems = [
     ],
   },
   {
-    label: "Ministerios",
-    href: "#ministries",
+    label: "Segmentos",
+    href: "#segmentos",
     children: [
-      { label: "Niños", href: "/ministerios/ninos" },
-      { label: "Jóvenes", href: "/ministerios/jovenes" },
-      { label: "Jóvenes adultos", href: "/ministerios/jovenes-adultos" },
-      { label: "Escogidas", href: "/ministerios/escogidas" },
-      { label: "Red de Hombres", href: "/ministerios/red-hombres" },
-      { label: "Raíces", href: "/ministerios/raices" },
-    ],
-  },
-  {
-    label: "Ver",
-    href: "#watch",
-    children: [
-      { label: "Cultos en vivo", href: CULTOS_EN_VIVO_HREF },
-      { label: "Mensajes anteriores", href: "/#messages" },
-      { label: "Podcasts", href: PODCASTS_HREF },
+      { label: "Niños", href: "/segmentos/ninos" },
+      { label: "Jóvenes", href: "/segmentos/jovenes" },
+      { label: "Jóvenes adultos", href: "/segmentos/jovenes-adultos" },
+      { label: "Escogidas", href: "/segmentos/escogidas" },
+      { label: "Red de Hombres", href: "/segmentos/red-hombres" },
+      { label: "Raíces", href: "/segmentos/raices" },
     ],
   },
 ]
@@ -99,13 +87,13 @@ export function Header() {
                           >
                             {child.label}
                           </a>
-                        ) : child.href.startsWith("/ministerios/") ? (
-                          <MinistryRouteLink
+                        ) : child.href.startsWith("/segmentos/") ? (
+                          <SegmentRouteLink
                             href={child.href}
                             className="text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10"
                           >
                             {child.label}
-                          </MinistryRouteLink>
+                          </SegmentRouteLink>
                         ) : (
                           <Link
                             href={child.href}
@@ -135,7 +123,7 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button variant="ghost" className="text-primary-foreground hover:bg-primary-foreground/10" asChild>
+            <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
               <UbicacionAnchor>Planifica tu visita</UbicacionAnchor>
             </Button>
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
@@ -158,7 +146,13 @@ export function Header() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden bg-foreground border-t border-primary-foreground/10">
-          <div className="px-4 py-4 space-y-3">
+          <div
+            className="px-4 py-4 space-y-3"
+            style={{
+              maxHeight: "calc(100vh - 4rem)",
+              overflowY: "auto",
+            }}
+          >
             {navItems.map((item) => (
               <div key={item.label}>
                 <Link
@@ -185,15 +179,15 @@ export function Header() {
                         >
                           {child.label}
                         </a>
-                      ) : child.href.startsWith("/ministerios/") ? (
-                        <MinistryRouteLink
+                      ) : child.href.startsWith("/segmentos/") ? (
+                        <SegmentRouteLink
                           key={child.label}
                           href={child.href}
                           className="block py-1 text-sm text-primary-foreground/60 hover:text-primary-foreground"
                           onClick={() => setIsOpen(false)}
                         >
                           {child.label}
-                        </MinistryRouteLink>
+                        </SegmentRouteLink>
                       ) : (
                         <Link
                           key={child.label}
@@ -210,7 +204,7 @@ export function Header() {
               </div>
             ))}
             <div className="pt-4 flex flex-col gap-2">
-              <Button variant="outline" className="w-full border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>
                 <UbicacionAnchor onClick={() => setIsOpen(false)}>Planifica tu visita</UbicacionAnchor>
               </Button>
               <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>

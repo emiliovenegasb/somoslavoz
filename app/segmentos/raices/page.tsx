@@ -1,6 +1,8 @@
 import Image from "next/image"
+import { Facebook } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { RAICES_FACEBOOK_URL } from "@/lib/site"
 
 const RAICES_AGE_RANGE = "50 años en adelante"
 
@@ -10,7 +12,7 @@ const RAICES_PARAGRAPHS = [
   "Creemos que cada temporada tiene bendición: aquí encontrarás acompañamiento, oración y oportunidades para servir con el corazón dispuesto.",
 ]
 
-export default function MinisterioRaicesPage() {
+export default function SegmentoRaicesPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -23,7 +25,7 @@ export default function MinisterioRaicesPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Ministerio de adultos mayores
+                Segmento de adultos mayores
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -58,6 +60,28 @@ export default function MinisterioRaicesPage() {
                   <li>• Espacios para compartir vida, testimonio y esperanza en Cristo.</li>
                 </ul>
               </div>
+
+              {RAICES_FACEBOOK_URL ? (
+                <div className="mt-10">
+                  <h2
+                    className="text-xl font-semibold text-foreground mb-4"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    Síguenos
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href={RAICES_FACEBOOK_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook Raíces TC"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground shadow-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                    >
+                      <Facebook className="h-5 w-5" />
+                    </a>
+                  </div>
+                </div>
+              ) : null}
             </article>
 
             <aside className="lg:sticky lg:top-24">
@@ -65,7 +89,7 @@ export default function MinisterioRaicesPage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/raices.webp"
-                    alt="Hombres y mujeres del ministerio Raíces en oración"
+                    alt="Hombres y mujeres del segmento Raíces en oración"
                     fill
                     className="object-cover"
                   />

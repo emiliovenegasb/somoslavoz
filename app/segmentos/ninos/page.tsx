@@ -1,16 +1,28 @@
 import Image from "next/image"
+import { Facebook, Instagram, Youtube } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import {
+  KIDS_MINISTRY_FACEBOOK_URL,
+  KIDS_MINISTRY_INSTAGRAM_URL,
+  KIDS_MINISTRY_YOUTUBE_URL,
+} from "@/lib/site"
 
 const KIDS_AGE_RANGE = "4 a 12 años"
 
 const KIDS_PARAGRAPHS = [
-  "En el Ministerio de Niños los pequeños aprenden el amor de Dios en un ambiente divertido, seguro y lleno de alegría.",
+  "En el Segmento de Niños los pequeños aprenden el amor de Dios en un ambiente divertido, seguro y lleno de alegría.",
   "A través de historias bíblicas adaptadas a su edad, descubrimos quién es Jesús y cómo su Palabra guía su vida diaria.",
   "Nuestro propósito es que cada niño crezca en fe, desarrolle hábitos espirituales y viva la comunión con confianza."
 ]
 
-export default function MinisterioNinosPage() {
+const KIDS_SOCIAL_LINKS = [
+  { icon: Instagram, label: "Instagram Kids TC", href: KIDS_MINISTRY_INSTAGRAM_URL },
+  { icon: Facebook, label: "Facebook Kids TC", href: KIDS_MINISTRY_FACEBOOK_URL },
+  { icon: Youtube, label: "YouTube Kids TC", href: KIDS_MINISTRY_YOUTUBE_URL },
+].filter((item) => item.href.length > 0)
+
+export default function SegmentoNinosPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -23,17 +35,17 @@ export default function MinisterioNinosPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Ministerio de niños
+                Segmento de niños
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Niños <span className="text-primary">Kids</span>
+                Kids
               </h1>
 
               <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-[#F97316]/15 px-4 py-2 text-sm font-semibold text-[#F97316]">
+                <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
                   Rango de edad: {KIDS_AGE_RANGE}
                 </span>
               </div>
@@ -58,6 +70,31 @@ export default function MinisterioNinosPage() {
                   <li>• Acompañamiento para que conozcan a Jesús y crezcan en comunidad.</li>
                 </ul>
               </div>
+
+              {KIDS_SOCIAL_LINKS.length > 0 ? (
+                <div className="mt-10">
+                  <h2
+                    className="text-xl font-semibold text-foreground mb-4"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    Síguenos
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-3">
+                    {KIDS_SOCIAL_LINKS.map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground shadow-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                      >
+                        <social.icon className="h-5 w-5" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
             </article>
 
             <aside className="lg:sticky lg:top-24">
@@ -65,7 +102,7 @@ export default function MinisterioNinosPage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/kids-ministry.webp"
-                    alt="Ministerio de niños"
+                    alt="Segmento de niños"
                     fill
                     className="object-cover"
                   />

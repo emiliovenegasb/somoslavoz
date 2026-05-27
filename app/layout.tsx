@@ -36,6 +36,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${montserrat.variable} ${openSans.variable} bg-background`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero-worship.webp"
+          type="image/webp"
+          fetchPriority="high"
+        />
+      </head>
       <body className="font-sans antialiased">
         <HomeScrollRestore />
         {children}

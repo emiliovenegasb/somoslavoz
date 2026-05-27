@@ -2,10 +2,10 @@
 
 import Link from "next/link"
 import type { ComponentProps } from "react"
-import { markReturnToMinistriesSection } from "@/lib/home-scroll"
+import { markReturnToSegmentosSection } from "@/lib/home-scroll"
 
-/** Enlace a una página de ministerio: al volver a inicio se restaura el scroll a #ministries. */
-export function MinistryRouteLink(props: ComponentProps<typeof Link>) {
+/** Enlace a una página de segmento: al volver a inicio se restaura el scroll a #segmentos. */
+export function SegmentRouteLink(props: ComponentProps<typeof Link>) {
   const { onClick, ...rest } = props
   return (
     <Link
@@ -18,7 +18,7 @@ export function MinistryRouteLink(props: ComponentProps<typeof Link>) {
           !e.altKey &&
           e.button === 0
         ) {
-          markReturnToMinistriesSection()
+          markReturnToSegmentosSection()
         }
         onClick?.(e)
       }}

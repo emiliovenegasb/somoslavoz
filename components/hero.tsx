@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { UbicacionAnchor } from "@/components/ubicacion-link"
@@ -7,20 +8,33 @@ import { SOCIAL_YOUTUBE_URL } from "@/lib/site"
 import { Play } from "lucide-react"
 
 const VER_EN_VIVO_HREF = SOCIAL_YOUTUBE_URL || "/#radio"
+const HERO_IMAGE = "/images/hero-worship.webp"
 
 export function Hero() {
+  const [heroLoaded, setHeroLoaded] = useState(false)
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-foreground">
         <Image
-          src="/images/hero-worship.webp"
+          src={HERO_IMAGE}
           alt="Servicio de adoración"
           fill
-          className="object-cover"
           priority
+          fetchPriority="high"
+          sizes="100vw"
+          quality={85}
+          className={`object-cover transition-opacity duration-700 ease-out ${
+            heroLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          onLoad={() => setHeroLoaded(true)}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80" />
+        <div
+          className={`absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80 transition-opacity duration-700 ease-out ${
+            heroLoaded ? "opacity-100" : "opacity-90"
+          }`}
+        />
       </div>
 
       {/* Content */}

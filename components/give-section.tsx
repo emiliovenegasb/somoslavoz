@@ -1,24 +1,5 @@
-import { Church, Globe, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DONATE_FLOW_URL } from "@/lib/site"
-
-const impactStats = [
-  {
-    icon: Church,
-    stat: "75+",
-    label: "Iglesias en Chile, Argentina y Perú",
-  },
-  {
-    icon: Globe,
-    stat: "100+",
-    label: "Aliados globales",
-  },
-  {
-    icon: Users,
-    stat: "200+",
-    label: "Familias atendidas al mes",
-  },
-]
 
 export function GiveSection() {
   return (
@@ -53,36 +34,13 @@ export function GiveSection() {
             </cite>
           </blockquote>
 
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center">
             <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8" asChild>
               <a href={DONATE_FLOW_URL} target="_blank" rel="noopener noreferrer">
                 Ofrenda ahora
               </a>
             </Button>
           </div>
-        </div>
-
-        {/* Impact Stats */}
-        <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {impactStats.map((item) => (
-            <div 
-              key={item.label}
-              className="text-center p-6 bg-primary-foreground/10 rounded-2xl"
-            >
-              <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-accent/20 mb-4">
-                <item.icon className="h-7 w-7 text-accent" />
-              </div>
-              <div 
-                className="text-4xl font-bold mb-2"
-                style={{ fontFamily: 'var(--font-heading)' }}
-              >
-                {item.stat}
-              </div>
-              <div className="text-primary-foreground/70">
-                {item.label}
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

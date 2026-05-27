@@ -1,16 +1,18 @@
 import Image from "next/image"
+import { Instagram } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { ESCOGIDAS_INSTAGRAM_URL } from "@/lib/site"
 
 const ESCOGIDAS_AGE_RANGE = "18 años en adelante"
 
 const ESCOGIDAS_PARAGRAPHS = [
-  "Escogidas es el ministerio de mujeres donde crecemos en comunión, fe y propósito a la luz de la Palabra de Dios.",
+  "Escogidas es el segmento de mujeres donde crecemos en comunión, fe y propósito a la luz de la Palabra de Dios.",
   "A través de enseñanza, tiempos de oración y actividades espirituales, acompañamos a cada mujer para fortalecer su identidad en Cristo.",
   "Queremos que cada integrante aprenda a vivir su llamado con amor, madurez y servicio dentro de la iglesia y su entorno."
 ]
 
-export default function MinisterioEscogidasPage() {
+export default function SegmentoEscogidasPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -23,7 +25,7 @@ export default function MinisterioEscogidasPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Ministerio de mujeres
+                Segmento de mujeres
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -58,6 +60,28 @@ export default function MinisterioEscogidasPage() {
                   <li>• Servicio en la iglesia para vivir el propósito con amor.</li>
                 </ul>
               </div>
+
+              {ESCOGIDAS_INSTAGRAM_URL ? (
+                <div className="mt-10">
+                  <h2
+                    className="text-xl font-semibold text-foreground mb-4"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    Síguenos
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href={ESCOGIDAS_INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram Escogidas TC"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground shadow-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                    >
+                      <Instagram className="h-5 w-5" />
+                    </a>
+                  </div>
+                </div>
+              ) : null}
             </article>
 
             <aside className="lg:sticky lg:top-24">
@@ -65,7 +89,7 @@ export default function MinisterioEscogidasPage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/escogidas.webp"
-                    alt="Mujeres del ministerio Escogidas en comunidad"
+                    alt="Mujeres del segmento Escogidas en comunidad"
                     fill
                     className="object-cover"
                   />

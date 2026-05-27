@@ -1,6 +1,8 @@
 import Image from "next/image"
+import { Instagram } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { RED_HOMBRES_INSTAGRAM_URL } from "@/lib/site"
 
 const RED_HOMBRES_AGE_RANGE = "18 años en adelante"
 
@@ -10,7 +12,7 @@ const RED_HOMBRES_PARAGRAPHS = [
   "Buscamos que cada hombre afiance su relación con Cristo, aprenda a servir y viva una fe práctica y firme."
 ]
 
-export default function MinisterioRedHombresPage() {
+export default function SegmentoRedHombresPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -23,7 +25,7 @@ export default function MinisterioRedHombresPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Red de ministerios
+                Red de Hombres
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -58,6 +60,28 @@ export default function MinisterioRedHombresPage() {
                   <li>• Participación en servicio dentro de la iglesia y alcance a otros.</li>
                 </ul>
               </div>
+
+              {RED_HOMBRES_INSTAGRAM_URL ? (
+                <div className="mt-10">
+                  <h2
+                    className="text-xl font-semibold text-foreground mb-4"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
+                    Síguenos
+                  </h2>
+                  <div className="flex flex-wrap items-center gap-3">
+                    <a
+                      href={RED_HOMBRES_INSTAGRAM_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Instagram Red de Hombres TC"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-muted-foreground shadow-sm transition-colors hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                    >
+                      <Instagram className="h-5 w-5" />
+                    </a>
+                  </div>
+                </div>
+              ) : null}
             </article>
 
             <aside className="lg:sticky lg:top-24">

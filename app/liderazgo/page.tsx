@@ -38,17 +38,16 @@ export default function LiderazgoPage() {
 
             <aside className="lg:sticky lg:top-24">
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
-                <div className="relative aspect-[4/3] w-full">
+                <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/images/liderazgo.webp"
                     alt="Pastores Juan Leon, Viviana Mendes, Jose I. Caceres y Magdalena Ripton"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover"
                   />
                 </div>
                 <figcaption className="space-y-2 px-5 py-4 text-sm leading-relaxed text-muted-foreground">
-                  <p>Pastores Juan Leon y su esposa Viviana Mendes</p>
-                  <p>Jose I. Caceres y su esposa Magdalena Ripton</p>
+                  <p>Pastor Juan Leon y su esposa Viviana Mendes</p>
                 </figcaption>
               </figure>
             </aside>

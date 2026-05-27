@@ -11,6 +11,15 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/ministerios/:path*",
+        destination: "/segmentos/:path*",
+        permanent: true,
+      },
+    ]
+  },
   images: {
     unoptimized: true,
     remotePatterns: [

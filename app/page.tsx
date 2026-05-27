@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero"
 import { WelcomeSection } from "@/components/welcome-section"
 import { HistorySection } from "@/components/history-section"
 import { ServiceTimes } from "@/components/service-times"
-import { Ministries } from "@/components/ministries"
+import { Segmentos } from "@/components/segmentos"
 import { WatchSection } from "@/components/watch-section"
 import { getRecentMessageCards } from "@/lib/site"
 
@@ -23,7 +23,7 @@ export default function Home() {
       <WelcomeSection />
       <HistorySection />
       <ServiceTimes />
-      <Ministries />
+      <Segmentos />
       <WatchSection messages={recentMessages} />
       <GiveSection />
       <AppDownloadSection />

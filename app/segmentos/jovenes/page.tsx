@@ -5,12 +5,12 @@ import { Footer } from "@/components/footer"
 const YOUTH_AGE_RANGE = "14 a 17 años"
 
 const YOUTH_PARAGRAPHS = [
-  "En el Ministerio de Jóvenes fortalecemos la fe con enseñanzas bíblicas, tiempos de alabanza y actividades que ayudan a los jóvenes a crecer con propósito.",
+  "En el Segmento de Jóvenes fortalecemos la fe con enseñanzas bíblicas, tiempos de alabanza y actividades que ayudan a los jóvenes a crecer con propósito.",
   "Acompañamos el proceso espiritual en cada etapa: aprendemos a tomar decisiones con base en la Palabra de Dios y a construir amistades sanas en comunidad.",
   "Nuestro objetivo es que cada joven conozca a Jesús, desarrolle una relación personal con Él y descubra cómo servir en la iglesia."
 ]
 
-export default function MinisterioJovenesPage() {
+export default function SegmentoJovenesPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -23,7 +23,7 @@ export default function MinisterioJovenesPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Ministerio juvenil
+                Segmento juvenil
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -65,7 +65,7 @@ export default function MinisterioJovenesPage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/youth-ministry.webp"
-                    alt="Ministerio juvenil"
+                    alt="Segmento juvenil"
                     fill
                     className="object-cover"
                   />

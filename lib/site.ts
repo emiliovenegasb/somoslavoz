@@ -9,7 +9,7 @@ const trim = (v: string | undefined) => v?.trim()
 /** Si en .env pusiste solo el usuario o @handle, arma la URL correcta */
 function normalizeSocialUrl(
   raw: string | undefined,
-  kind: "facebook" | "instagram" | "youtube" | "x" | "spotify",
+  kind: "facebook" | "instagram" | "youtube" | "x" | "spotify" | "tiktok",
 ): string {
   const v = trim(raw)
   if (!v) return ""
@@ -45,6 +45,10 @@ function normalizeSocialUrl(
       }
       return `https://open.spotify.com/user/${v.replace(/^user\//i, "")}`
     }
+    case "tiktok": {
+      const user = v.replace(/^@/, "").replace(/^(www\.)?tiktok\.com\/@?/i, "").split(/[/?#]/)[0]
+      return user ? `https://www.tiktok.com/@${user}` : v
+    }
     default:
       return v
   }
@@ -65,7 +69,7 @@ export const APPLE_STORE_URL =
 /** Enlace Google Play (sección "Descarga nuestra App") */
 export const GOOGLE_PLAY_URL = trim(process.env.NEXT_PUBLIC_GOOGLE_PLAY_URL) || "#"
 
-/** Nombre del ministerio / sitio */
+/** Nombre del sitio */
 export const SITE_NAME =
   trim(process.env.NEXT_PUBLIC_SITE_NAME) || "Somos la Voz Templo Central"
 
@@ -119,6 +123,47 @@ export const SOCIAL_SPOTIFY_URL = normalizeSocialUrl(
   process.env.NEXT_PUBLIC_SOCIAL_SPOTIFY_URL,
   "spotify",
 )
+export const SOCIAL_TIKTOK_URL =
+  normalizeSocialUrl(process.env.NEXT_PUBLIC_SOCIAL_TIKTOK_URL, "tiktok") ||
+  "https://www.tiktok.com/@templocentraloficial"
+
+/** Redes del Segmento de Niños (página `/segmentos/ninos`) */
+export const KIDS_MINISTRY_INSTAGRAM_URL =
+  normalizeSocialUrl(
+    process.env.NEXT_PUBLIC_KIDS_MINISTRY_INSTAGRAM_URL,
+    "instagram",
+  ) || "https://www.instagram.com/kidstc_veed/"
+export const KIDS_MINISTRY_FACEBOOK_URL =
+  normalizeSocialUrl(
+    process.env.NEXT_PUBLIC_KIDS_MINISTRY_FACEBOOK_URL,
+    "facebook",
+  ) || "https://www.facebook.com/profile.php?id=100068102025407"
+export const KIDS_MINISTRY_YOUTUBE_URL =
+  normalizeSocialUrl(
+    process.env.NEXT_PUBLIC_KIDS_MINISTRY_YOUTUBE_URL,
+    "youtube",
+  ) || "https://www.youtube.com/channel/UCUb6a-p8gPZ7x-pWyTMV6Cg"
+
+/** Redes del Segmento Red de Hombres (página `/segmentos/red-hombres`) */
+export const RED_HOMBRES_INSTAGRAM_URL =
+  normalizeSocialUrl(
+    process.env.NEXT_PUBLIC_RED_HOMBRES_INSTAGRAM_URL,
+    "instagram",
+  ) || "https://www.instagram.com/reddehombrestc/"
+
+/** Redes del Segmento Escogidas (página `/segmentos/escogidas`) */
+export const ESCOGIDAS_INSTAGRAM_URL =
+  normalizeSocialUrl(
+    process.env.NEXT_PUBLIC_ESCOGIDAS_INSTAGRAM_URL,
+    "instagram",
+  ) || "https://www.instagram.com/escogidastc/"
+
+/** Redes del Segmento Raíces (página `/segmentos/raices`) */
+export const RAICES_FACEBOOK_URL =
+  normalizeSocialUrl(
+    process.env.NEXT_PUBLIC_RAICES_FACEBOOK_URL,
+    "facebook",
+  ) || "https://www.facebook.com/search/top?q=raices%20tc"
 
 /**
  * Enlace del programa de radio (banner «Chile para Cristo», botón Escuchar).

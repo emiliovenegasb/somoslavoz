@@ -5,12 +5,12 @@ import { Footer } from "@/components/footer"
 const YOUNG_ADULTS_AGE_RANGE = "18 a 25 años"
 
 const YOUNG_ADULTS_PARAGRAPHS = [
-  "En el Ministerio de Jóvenes adultos buscamos acompañar esta etapa con fundamento bíblico, guía espiritual y propósito para la vida diaria.",
+  "En el Segmento de Jóvenes adultos buscamos acompañar esta etapa con fundamento bíblico, guía espiritual y propósito para la vida diaria.",
   "Promovemos la construcción de relaciones sanas, el crecimiento en carácter y la participación activa en la iglesia, aprendiendo a servir con amor.",
   "Nuestro deseo es que cada joven adulto afiance su fe, descubra dones y encuentre oportunidades para impactar su entorno con la esperanza de Cristo."
 ]
 
-export default function MinisterioJovenesAdultosPage() {
+export default function SegmentoJovenesAdultosPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -23,7 +23,7 @@ export default function MinisterioJovenesAdultosPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Ministerio de jóvenes adultos
+                Segmento de jóvenes adultos
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"

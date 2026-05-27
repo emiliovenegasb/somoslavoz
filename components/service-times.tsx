@@ -3,6 +3,47 @@ import { Button } from "@/components/ui/button"
 import { UBICACION_ID } from "@/lib/anchors"
 import { MAPS_GOOGLE_URL, MAPS_WAZE_URL, SITE_ADDRESS } from "@/lib/site"
 
+function GoogleMapsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+        fill="#EA4335"
+      />
+      <circle cx="12" cy="9" r="2.75" fill="#B31412" />
+      <circle cx="12" cy="9" r="1.75" fill="#fff" />
+    </svg>
+  )
+}
+
+function WazeIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="12" cy="12" r="10" fill="#33CCFF" />
+      <ellipse cx="9" cy="10.5" rx="1.2" ry="1.6" fill="#000" />
+      <ellipse cx="15" cy="10.5" rx="1.2" ry="1.6" fill="#000" />
+      <path
+        d="M8.5 14.5c1.2 1.6 2.8 2.5 3.5 2.5s2.3-.9 3.5-2.5"
+        stroke="#000"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        fill="none"
+      />
+    </svg>
+  )
+}
+
 const services = [
   {
     day: "Miércoles",
@@ -90,17 +131,26 @@ export function ServiceTimes() {
             </div>
             <div className="flex flex-wrap gap-3 justify-center md:justify-end">
               <Button variant="outline" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
-                <a href={MAPS_GOOGLE_URL} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={MAPS_GOOGLE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <GoogleMapsIcon className="h-4 w-4 shrink-0" />
                   Ver en Google Maps
                 </a>
               </Button>
               <Button variant="outline" className="border-primary-foreground/20 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
-                <a href={MAPS_WAZE_URL} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={MAPS_WAZE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  <WazeIcon className="h-4 w-4 shrink-0" />
                   Waze
                 </a>
-              </Button>
-              <Button className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Planifica tu visita
               </Button>
             </div>
           </div>
