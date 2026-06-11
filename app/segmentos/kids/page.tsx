@@ -11,9 +11,9 @@ import {
 const KIDS_AGE_RANGE = "4 a 12 años"
 
 const KIDS_PARAGRAPHS = [
-  "En el Segmento de Niños los pequeños aprenden el amor de Dios en un ambiente divertido, seguro y lleno de alegría.",
-  "A través de historias bíblicas adaptadas a su edad, descubrimos quién es Jesús y cómo su Palabra guía su vida diaria.",
-  "Nuestro propósito es que cada niño crezca en fe, desarrolle hábitos espirituales y viva la comunión con confianza."
+  "En el segmento Kids, los pequeños aprenden el amor de Dios en un ambiente divertido, seguro y lleno de alegría.",
+  "A través de historias bíblicas adaptadas a su edad, descubrimos quién es Jesús y cómo su palabra guía su vida diaria.",
+  "Nuestro propósito es que cada niño crezca en fe, desarrolle hábitos espirituales y viva en comunión con confianza.",
 ]
 
 const KIDS_SOCIAL_LINKS = [
@@ -22,7 +22,7 @@ const KIDS_SOCIAL_LINKS = [
   { icon: Youtube, label: "YouTube Kids TC", href: KIDS_MINISTRY_YOUTUBE_URL },
 ].filter((item) => item.href.length > 0)
 
-export default function SegmentoNinosPage() {
+export default function SegmentoKidsPage() {
   return (
     <main className="min-h-screen bg-background">
       <Header />
@@ -35,7 +35,7 @@ export default function SegmentoNinosPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Segmento de niños
+                Segmento Kids
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -101,14 +101,14 @@ export default function SegmentoNinosPage() {
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/images/kids-ministry.webp"
-                    alt="Segmento de niños"
+                    src="/images/kids.webp"
+                    alt="Segmento Kids"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Para niños de {KIDS_AGE_RANGE}. Un lugar donde la fe se aprende y se vive.
+                  Kids ({KIDS_AGE_RANGE}): un lugar donde la fe se aprende y se vive.
                 </figcaption>
               </figure>
             </aside>
@@ -120,4 +120,3 @@ export default function SegmentoNinosPage() {
     </main>
   )
 }
-

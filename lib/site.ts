@@ -127,7 +127,7 @@ export const SOCIAL_TIKTOK_URL =
   normalizeSocialUrl(process.env.NEXT_PUBLIC_SOCIAL_TIKTOK_URL, "tiktok") ||
   "https://www.tiktok.com/@templocentraloficial"
 
-/** Redes del Segmento de Niños (página `/segmentos/ninos`) */
+/** Redes del segmento Kids (página `/segmentos/kids`) */
 export const KIDS_MINISTRY_INSTAGRAM_URL =
   normalizeSocialUrl(
     process.env.NEXT_PUBLIC_KIDS_MINISTRY_INSTAGRAM_URL,

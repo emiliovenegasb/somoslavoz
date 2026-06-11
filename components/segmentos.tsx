@@ -6,25 +6,25 @@ const segmentos = [
   {
     title: "Kids",
     description:
-      "Un ambiente divertido y seguro donde los niños descubren el amor de Dios.",
-    image: "/images/kids-ministry.webp",
-    href: "/segmentos/ninos",
+      "Un ambiente divertido y seguro donde los pequeños de Kids descubren el amor de Dios.",
+    image: "/images/kids.webp",
+    href: "/segmentos/kids",
     color: "bg-[#F97316]",
   },
   {
     title: "Teens",
     description:
-      "Impulsamos a los adolescentes a crecer en la fe y a formar amistades significativas.",
-    image: "/images/youth-ministry.webp",
-    href: "/segmentos/jovenes",
+      "Impulsamos a los adolescentes de Teens a crecer en la fe y a formar amistades significativas.",
+    image: "/images/teens.webp",
+    href: "/segmentos/teens",
     color: "bg-primary",
   },
   {
-    title: "Jovenes",
+    title: "Jóvenes",
     description:
       "Acompañamos esta etapa con fundamento bíblico y propósito: relaciones sanas, crecimiento en carácter y participación en la iglesia.",
-    image: "/images/jovenes-adultos.webp",
-    href: "/segmentos/jovenes-adultos",
+    image: "/images/jovenes.webp",
+    href: "/segmentos/jovenes",
     color: "bg-[#7C3AED]",
   },
   {
@@ -38,8 +38,8 @@ const segmentos = [
   {
     title: "Red de Hombres",
     description:
-      "Espacio para que los hombres de la iglesia crezcan en fe, compañerismo y propósito a la luz de la Palabra de Dios.",
-    image: "/images/red-hombres.webp",
+      "Espacio para que los hombres de la iglesia crezcan en fe, compañerismo y propósito a la luz de la palabra de Dios.",
+    image: "/images/red_hombres.webp",
     href: "/segmentos/red-hombres",
     color: "bg-[#3B82F6]",
   },

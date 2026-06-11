@@ -43,7 +43,7 @@ export default function NuestraHistoriaPage() {
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Fundadores: Apóstol José Ignacio Fuentes y su esposa Graciela Donoso.
+                  Fundadores: apóstol José Ignacio Fuentes y su esposa Graciela Donoso.
                 </figcaption>
               </figure>
             </aside>

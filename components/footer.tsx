@@ -54,9 +54,9 @@ const footerLinks = {
     { label: "Contáctanos", href: "#contact" },
   ],
   segmentos: [
-    { label: "Niños", href: "/segmentos/ninos" },
+    { label: "Kids", href: "/segmentos/kids" },
+    { label: "Teens", href: "/segmentos/teens" },
     { label: "Jóvenes", href: "/segmentos/jovenes" },
-    { label: "Jóvenes adultos", href: "/segmentos/jovenes-adultos" },
     { label: "Escogidas", href: "/segmentos/escogidas" },
     { label: "Red de Hombres", href: "/segmentos/red-hombres" },
     { label: "Raíces", href: "/segmentos/raices" },

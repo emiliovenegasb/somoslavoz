@@ -6,7 +6,7 @@ import { persistScrollY, restoreHomeScrollAsync } from "@/lib/home-scroll"
 
 /**
  * En layout raíz: conserva scroll en `/` y al volver desde segmentos
- * (p. ej. /segmentos/ninos) restaura #segmentos de forma asíncrona.
+ * (p. ej. /segmentos/kids) restaura #segmentos de forma asíncrona.
  */
 export function HomeScrollRestore() {
   const pathname = usePathname()

@@ -7,9 +7,9 @@ import { RED_HOMBRES_INSTAGRAM_URL } from "@/lib/site"
 const RED_HOMBRES_AGE_RANGE = "18 años en adelante"
 
 const RED_HOMBRES_PARAGRAPHS = [
-  "La Red de Hombres es un espacio de la iglesia para crecer en fe, compañerismo y propósito según la Palabra de Dios.",
+  "La Red de Hombres es un espacio de la iglesia para crecer en fe, compañerismo y propósito según la palabra de Dios.",
   "Acompañamos el desarrollo espiritual, fortalecemos el carácter y promovemos una vida con propósito para el hogar, la iglesia y la comunidad.",
-  "Buscamos que cada hombre afiance su relación con Cristo, aprenda a servir y viva una fe práctica y firme."
+  "Buscamos que cada hombre afiance su relación con Cristo, aprenda a servir y viva una fe práctica y firme.",
 ]
 
 export default function SegmentoRedHombresPage() {
@@ -25,7 +25,7 @@ export default function SegmentoRedHombresPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Red de Hombres
+                Segmento Red de Hombres
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -88,15 +88,15 @@ export default function SegmentoRedHombresPage() {
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/images/red-hombres.webp"
+                    src="/images/red_hombres.webp"
                     alt="Hombres conversando en la Red de Hombres"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Para hombres de {RED_HOMBRES_AGE_RANGE}. Un lugar para aprender, servir
-                  y crecer juntos.
+                  Red de Hombres ({RED_HOMBRES_AGE_RANGE}): un lugar para aprender, servir y
+                  crecer juntos.
                 </figcaption>
               </figure>
             </aside>

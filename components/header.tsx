@@ -12,7 +12,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { DONATE_FLOW_URL } from "@/lib/site"
-import { UbicacionAnchor } from "@/components/ubicacion-link"
 import { SegmentRouteLink } from "@/components/segment-route-link"
 
 const navItems = [
@@ -30,9 +29,9 @@ const navItems = [
     label: "Segmentos",
     href: "#segmentos",
     children: [
-      { label: "Niños", href: "/segmentos/ninos" },
+      { label: "Kids", href: "/segmentos/kids" },
+      { label: "Teens", href: "/segmentos/teens" },
       { label: "Jóvenes", href: "/segmentos/jovenes" },
-      { label: "Jóvenes adultos", href: "/segmentos/jovenes-adultos" },
       { label: "Escogidas", href: "/segmentos/escogidas" },
       { label: "Red de Hombres", href: "/segmentos/red-hombres" },
       { label: "Raíces", href: "/segmentos/raices" },
@@ -124,9 +123,6 @@ export function Header() {
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-              <UbicacionAnchor>Planifica tu visita</UbicacionAnchor>
-            </Button>
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
               <a href={DONATE_FLOW_URL} target="_blank" rel="noopener noreferrer">
                 Ofrenda ahora
               </a>
@@ -204,9 +200,6 @@ export function Header() {
               </div>
             ))}
             <div className="pt-4 flex flex-col gap-2">
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>
-                <UbicacionAnchor onClick={() => setIsOpen(false)}>Planifica tu visita</UbicacionAnchor>
-              </Button>
               <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>
                 <a href={DONATE_FLOW_URL} target="_blank" rel="noopener noreferrer">
                   Ofrenda ahora

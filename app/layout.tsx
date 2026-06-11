@@ -40,7 +40,7 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
-          href="/images/hero-worship.webp"
+          href="/images/fondo_main.webp"
           type="image/webp"
           fetchPriority="high"
         />

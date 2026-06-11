@@ -8,7 +8,7 @@ const RAICES_AGE_RANGE = "50 años en adelante"
 
 const RAICES_PARAGRAPHS = [
   "Raíces es el espacio para hombres y mujeres de nuestra iglesia que desean seguir creciendo en fe, comunión y propósito en esta etapa de la vida.",
-  "Nos reunimos para adorar, aprender de la Palabra y compartir experiencias que fortalecen el alma y el vínculo entre hermanos.",
+  "Nos reunimos para adorar, aprender de la palabra de Dios y compartir experiencias que fortalecen el alma y el vínculo entre hermanos.",
   "Creemos que cada temporada tiene bendición: aquí encontrarás acompañamiento, oración y oportunidades para servir con el corazón dispuesto.",
 ]
 
@@ -25,7 +25,7 @@ export default function SegmentoRaicesPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Segmento de adultos mayores
+                Segmento Raíces
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -95,8 +95,7 @@ export default function SegmentoRaicesPage() {
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Para hombres y mujeres de {RAICES_AGE_RANGE}. Fe que profundiza y comunidad
-                  que sostiene.
+                  Raíces ({RAICES_AGE_RANGE}): fe que profundiza y comunidad que sostiene.
                 </figcaption>
               </figure>
             </aside>

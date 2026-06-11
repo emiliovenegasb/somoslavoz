@@ -8,7 +8,7 @@ import { SOCIAL_YOUTUBE_URL } from "@/lib/site"
 import { Play } from "lucide-react"
 
 const VER_EN_VIVO_HREF = SOCIAL_YOUTUBE_URL || "/#radio"
-const HERO_IMAGE = "/images/hero-worship.webp"
+const HERO_IMAGE = "/images/fondo_main.webp"
 
 export function Hero() {
   const [heroLoaded, setHeroLoaded] = useState(false)

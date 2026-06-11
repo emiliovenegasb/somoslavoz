@@ -2,12 +2,12 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-const YOUTH_AGE_RANGE = "14 a 17 años"
+const YOUNG_ADULTS_AGE_RANGE = "18 años en adelante"
 
-const YOUTH_PARAGRAPHS = [
-  "En el Segmento de Jóvenes fortalecemos la fe con enseñanzas bíblicas, tiempos de alabanza y actividades que ayudan a los jóvenes a crecer con propósito.",
-  "Acompañamos el proceso espiritual en cada etapa: aprendemos a tomar decisiones con base en la Palabra de Dios y a construir amistades sanas en comunidad.",
-  "Nuestro objetivo es que cada joven conozca a Jesús, desarrolle una relación personal con Él y descubra cómo servir en la iglesia."
+const YOUNG_ADULTS_PARAGRAPHS = [
+  "En el segmento Jóvenes buscamos acompañar esta etapa con fundamento bíblico, guía espiritual y propósito para la vida diaria.",
+  "Promovemos la construcción de relaciones sanas, el crecimiento en carácter y la participación activa en la iglesia, aprendiendo a servir con amor.",
+  "Nuestro deseo es que cada joven afiance su fe, descubra dones y encuentre oportunidades para impactar su entorno con la esperanza de Cristo.",
 ]
 
 export default function SegmentoJovenesPage() {
@@ -23,7 +23,7 @@ export default function SegmentoJovenesPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Segmento juvenil
+                Segmento Jóvenes
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -34,12 +34,12 @@ export default function SegmentoJovenesPage() {
 
               <div className="mb-8 flex flex-wrap items-center gap-3">
                 <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
-                  Rango de edad: {YOUTH_AGE_RANGE}
+                  Rango de edad: {YOUNG_ADULTS_AGE_RANGE}
                 </span>
               </div>
 
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
-                {YOUTH_PARAGRAPHS.map((paragraph) => (
+                {YOUNG_ADULTS_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
@@ -52,10 +52,10 @@ export default function SegmentoJovenesPage() {
                   ¿Qué hacemos?
                 </h2>
                 <ul className="space-y-3 text-base leading-relaxed text-muted-foreground">
-                  <li>• Predicación y enseñanza bíblica enfocada en su etapa.</li>
-                  <li>• Momentos de alabanza, oración y conversación guiada.</li>
-                  <li>• Actividades que promueven compañerismo y crecimiento personal.</li>
-                  <li>• Oportunidades para servir y generar impacto en su comunidad.</li>
+                  <li>• Enseñanza bíblica aplicada a decisiones y desafíos de la vida.</li>
+                  <li>• Tiempos de alabanza, oración y edificación mutua.</li>
+                  <li>• Mentoría y acompañamiento para fortalecer la vida espiritual.</li>
+                  <li>• Servicio en la iglesia para desarrollar dones y pertenencia.</li>
                 </ul>
               </div>
             </article>
@@ -64,15 +64,14 @@ export default function SegmentoJovenesPage() {
               <figure className="overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/images/youth-ministry.webp"
-                    alt="Segmento juvenil"
+                    src="/images/jovenes.webp"
+                    alt="Jóvenes en comunidad"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Para jóvenes de {YOUTH_AGE_RANGE}. Crecemos en fe, aprendemos a servir y
-                  caminamos juntos.
+                  Jóvenes ({YOUNG_ADULTS_AGE_RANGE}): fe que se vive, propósito que se construye.
                 </figcaption>
               </figure>
             </aside>
@@ -84,4 +83,3 @@ export default function SegmentoJovenesPage() {
     </main>
   )
 }
-

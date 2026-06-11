@@ -2,9 +2,11 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-const LIDERAZGO_PARAGRAPHS = [
-  "Nuestro liderazgo se apoya en el llamado de Dios, la Palabra y el servicio con humildad. Pastores y esposas caminan juntos para pastorear la iglesia con amor y fidelidad.",
-  "Creemos en un liderazgo que edifica, acompaña y fortalece a la familia de la fe, impulsando a cada persona a crecer en Cristo y a vivir el evangelio en lo cotidiano.",
+const BIO_PARAGRAPHS = [
+  "Con más de 40 años sirviendo al Señor, el Pastor Juan León ha dedicado su vida al ministerio, acompañando, guiando y edificando a personas y familias a través del mensaje transformador de Jesucristo.",
+  "Junto a su esposa, Viviana Méndez, ha desarrollado una labor pastoral basada en el amor de Dios, la fe y el servicio, siendo un ejemplo de compromiso y fidelidad para la iglesia. Su caminar ministerial ha estado marcado por la confianza en la dirección de Dios y el deseo constante de ver vidas restauradas y fortalecidas en Cristo.",
+  "Como familia, junto a sus hijas Siboney y Marcela León, continúan sirviendo con pasión y dedicación, creyendo firmemente en el poder de Dios para transformar corazones y traer esperanza a cada generación.",
+  "Su visión sigue siendo clara: anunciar el evangelio, fortalecer la fe de las personas y contribuir al crecimiento espiritual de la iglesia, inspirando a otros a vivir una relación genuina con Jesucristo.",
 ]
 
 export default function LiderazgoPage() {
@@ -29,11 +31,29 @@ export default function LiderazgoPage() {
                 Liderazgo
               </h1>
 
+              <blockquote className="mb-8 border-l-4 border-primary pl-6 text-base leading-relaxed text-muted-foreground italic">
+                <p>
+                  &ldquo;Porque yo sé los planes que tengo para ustedes&rdquo;, declara el
+                  Señor, &ldquo;planes de bienestar y no de calamidad, a fin de darles un
+                  futuro y una esperanza.&rdquo;
+                </p>
+                <cite className="mt-3 block text-sm font-semibold not-italic text-foreground">
+                  Jeremías 29:11
+                </cite>
+              </blockquote>
+
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
-                {LIDERAZGO_PARAGRAPHS.map((paragraph) => (
+                {BIO_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+
+              <p
+                className="mt-8 text-base font-semibold text-foreground"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Pastor Juan León y Familia
+              </p>
             </article>
 
             <aside className="lg:sticky lg:top-24">
@@ -41,13 +61,13 @@ export default function LiderazgoPage() {
                 <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/images/liderazgo.webp"
-                    alt="Pastores Juan Leon, Viviana Mendes, Jose I. Caceres y Magdalena Ripton"
+                    alt="Pastor Juan León y su esposa Viviana Méndez"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="space-y-2 px-5 py-4 text-sm leading-relaxed text-muted-foreground">
-                  <p>Pastor Juan Leon y su esposa Viviana Mendes</p>
+                  <p>Pastor Juan León y su esposa Viviana Méndez</p>
                 </figcaption>
               </figure>
             </aside>

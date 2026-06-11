@@ -18,6 +18,16 @@ const nextConfig = {
         destination: "/segmentos/:path*",
         permanent: true,
       },
+      {
+        source: "/segmentos/jovenes-adultos",
+        destination: "/segmentos/jovenes",
+        permanent: true,
+      },
+      {
+        source: "/segmentos/ninos",
+        destination: "/segmentos/kids",
+        permanent: true,
+      },
     ]
   },
   images: {

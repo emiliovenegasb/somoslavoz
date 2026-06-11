@@ -7,9 +7,9 @@ import { ESCOGIDAS_INSTAGRAM_URL } from "@/lib/site"
 const ESCOGIDAS_AGE_RANGE = "18 años en adelante"
 
 const ESCOGIDAS_PARAGRAPHS = [
-  "Escogidas es el segmento de mujeres donde crecemos en comunión, fe y propósito a la luz de la Palabra de Dios.",
+  "Escogidas es el segmento de mujeres donde crecemos en comunión, fe y propósito a la luz de la palabra de Dios.",
   "A través de enseñanza, tiempos de oración y actividades espirituales, acompañamos a cada mujer para fortalecer su identidad en Cristo.",
-  "Queremos que cada integrante aprenda a vivir su llamado con amor, madurez y servicio dentro de la iglesia y su entorno."
+  "Queremos que cada integrante aprenda a vivir su llamado con amor, madurez y servicio dentro de la iglesia y en su entorno.",
 ]
 
 export default function SegmentoEscogidasPage() {
@@ -25,7 +25,7 @@ export default function SegmentoEscogidasPage() {
                 className="text-primary text-sm font-semibold tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
-                Segmento de mujeres
+                Segmento Escogidas
               </span>
               <h1
                 className="mt-4 mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground"
@@ -95,8 +95,7 @@ export default function SegmentoEscogidasPage() {
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Para mujeres de {ESCOGIDAS_AGE_RANGE}. Un espacio para crecer en fe y
-                  compañía.
+                  Escogidas ({ESCOGIDAS_AGE_RANGE}): un espacio para crecer en fe y comunión.
                 </figcaption>
               </figure>
             </aside>
