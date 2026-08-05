@@ -47,6 +47,7 @@ const footerLinks = {
     { label: "Lo que creemos", href: "/lo-que-creemos" },
   ],
   connect: [
+    { label: "Agenda", href: "/agenda" },
     { label: "Planifica tu visita", href: `#${UBICACION_ID}` },
     { label: "Ver en línea", href: "#watch" },
     { label: "Petición de oración", href: "#prayer" },

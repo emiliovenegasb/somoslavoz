@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
+import { ThisWeekSection } from "@/components/this-week-section"
 import { WelcomeSection } from "@/components/welcome-section"
 import { HistorySection } from "@/components/history-section"
 import { ServiceTimes } from "@/components/service-times"
@@ -20,6 +21,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
+      <ThisWeekSection />
       <WelcomeSection />
       <HistorySection />
       <ServiceTimes />

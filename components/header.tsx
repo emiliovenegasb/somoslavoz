@@ -25,6 +25,10 @@ const navItems = [
     ],
   },
   {
+    label: "Agenda",
+    href: "/agenda",
+  },
+  {
     label: "Segmentos",
     href: "#segmentos",
     children: [
