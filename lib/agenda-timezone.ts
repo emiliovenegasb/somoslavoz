@@ -14,8 +14,17 @@ const horaFormatter = new Intl.DateTimeFormat("en-GB", {
   hour12: false,
 })
 
+/** Fecha de evento de todo el día (VALUE=DATE en iCal, sin desfase horario). */
+export function formatFechaAgendaAllDay(date: Date): string {
+  const year = date.getUTCFullYear()
+  const month = String(date.getUTCMonth() + 1).padStart(2, "0")
+  const day = String(date.getUTCDate()).padStart(2, "0")
+  return `${year}-${month}-${day}`
+}
+
 /** Fecha del evento en zona horaria de la iglesia (yyyy-MM-dd). */
-export function formatFechaAgenda(date: Date): string {
+export function formatFechaAgenda(date: Date, isAllDay = false): string {
+  if (isAllDay) return formatFechaAgendaAllDay(date)
   return fechaFormatter.format(date)
 }
 

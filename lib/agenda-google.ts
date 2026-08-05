@@ -27,7 +27,7 @@ function toEventoAgenda(
   return {
     id,
     titulo,
-    fecha: formatFechaAgenda(start),
+    fecha: formatFechaAgenda(start, isFullDay),
     hora: isFullDay ? "Todo el día" : formatHoraAgenda(start),
     horaFin: end && !isFullDay ? formatHoraAgenda(end) : undefined,
     lugar: location || "Templo Central",
