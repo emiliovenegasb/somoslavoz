@@ -1,7 +1,8 @@
 import ical, { type VEvent } from "node-ical"
-import { addMonths, format, startOfDay, startOfMonth } from "date-fns"
+import { addMonths, startOfDay, startOfMonth } from "date-fns"
 import type { EventoAgenda } from "@/lib/agenda"
 import { isDestacado, parseMinisterio } from "@/lib/agenda-ministerio"
+import { formatFechaAgenda, formatHoraAgenda } from "@/lib/agenda-timezone"
 
 function icalText(value: unknown): string {
   if (value == null) return ""
@@ -26,9 +27,9 @@ function toEventoAgenda(
   return {
     id,
     titulo,
-    fecha: format(start, "yyyy-MM-dd"),
-    hora: isFullDay ? "Todo el día" : format(start, "HH:mm"),
-    horaFin: end && !isFullDay ? format(end, "HH:mm") : undefined,
+    fecha: formatFechaAgenda(start),
+    hora: isFullDay ? "Todo el día" : formatHoraAgenda(start),
+    horaFin: end && !isFullDay ? formatHoraAgenda(end) : undefined,
     lugar: location || "Templo Central",
     ministerio,
     descripcion: description || undefined,
@@ -36,7 +37,11 @@ function toEventoAgenda(
   }
 }
 
-function expandEvent(event: VEvent, rangeStart: Date, rangeEnd: Date): EventoAgenda[] {
+function expandEvent(
+  event: VEvent,
+  rangeStart: Date,
+  rangeEnd: Date,
+): Array<{ start: Date; evento: EventoAgenda }> {
   const summary = icalText(event.summary)
   const location = icalText(event.location)
   const description = icalText(event.description)
@@ -47,9 +52,10 @@ function expandEvent(event: VEvent, rangeStart: Date, rangeEnd: Date): EventoAge
       to: rangeEnd,
     })
 
-    return instances.map((instance, index) =>
-      toEventoAgenda(
-        `${event.uid}-${format(instance.start, "yyyy-MM-dd'T'HHmm")}-${index}`,
+    return instances.map((instance, index) => ({
+      start: instance.start,
+      evento: toEventoAgenda(
+        `${event.uid}-${instance.start.toISOString()}-${index}`,
         instance.start,
         instance.end,
         icalText(instance.summary) || summary,
@@ -57,7 +63,7 @@ function expandEvent(event: VEvent, rangeStart: Date, rangeEnd: Date): EventoAge
         description,
         instance.isFullDay,
       ),
-    )
+    }))
   }
 
   if (!event.start || event.start < rangeStart || event.start > rangeEnd) {
@@ -67,15 +73,18 @@ function expandEvent(event: VEvent, rangeStart: Date, rangeEnd: Date): EventoAge
   const isFullDay = event.datetype === "date"
 
   return [
-    toEventoAgenda(
-      event.uid,
-      event.start,
-      event.end,
-      summary,
-      location,
-      description,
-      isFullDay,
-    ),
+    {
+      start: event.start,
+      evento: toEventoAgenda(
+        event.uid,
+        event.start,
+        event.end,
+        summary,
+        location,
+        description,
+        isFullDay,
+      ),
+    },
   ]
 }
 
@@ -103,22 +112,18 @@ export async function fetchGoogleCalendarEvents(icalUrl: string): Promise<Evento
   const today = startOfDay(new Date())
   const rangeEnd = addMonths(startOfMonth(today), 4)
 
-  const eventos: EventoAgenda[] = []
+  const rows: Array<{ start: Date; evento: EventoAgenda }> = []
 
   for (const item of Object.values(calendar)) {
     if (!item || item.type !== "VEVENT") continue
-    eventos.push(...expandEvent(item, today, rangeEnd))
+    rows.push(...expandEvent(item, today, rangeEnd))
   }
 
-  if (eventos.length === 0) {
+  if (rows.length === 0) {
     throw new Error("El calendario iCal no tiene eventos próximos en los próximos meses.")
   }
 
-  return eventos.sort((a, b) => {
-    const da = new Date(`${a.fecha}T${a.hora === "Todo el día" ? "00:00" : a.hora}`)
-    const db = new Date(`${b.fecha}T${b.hora === "Todo el día" ? "00:00" : b.hora}`)
-    return da.getTime() - db.getTime()
-  })
+  return rows.sort((a, b) => a.start.getTime() - b.start.getTime()).map((row) => row.evento)
 }
 
 export function validateGoogleCalendarIcalUrl(icalUrl: string): void {
