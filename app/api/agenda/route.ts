@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 import { eventosInVisibleWindow } from "@/lib/agenda"
 import { getAgendaLoadResult, getUpcomingEventos } from "@/lib/agenda-server"
 
-export const revalidate = 900
+export const revalidate = 300
 
 export async function GET() {
   try {

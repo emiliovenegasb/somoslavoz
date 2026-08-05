@@ -36,3 +36,8 @@ export function formatHoraAgenda(date: Date): string {
 export function getAgendaTimezone(): string {
   return AGENDA_TIMEZONE
 }
+
+/** Fecha de hoy en la zona horaria de la agenda (yyyy-MM-dd). */
+export function getTodayAgendaDateStr(): string {
+  return formatFechaAgenda(new Date())
+}

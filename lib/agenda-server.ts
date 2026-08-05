@@ -56,8 +56,8 @@ function getCachedAgenda() {
     process.env.GOOGLE_CALENDAR_ICAL_URL ?? "",
   ].join("|") || "sin-calendario"
 
-  return unstable_cache(loadEventosFromSource, ["agenda-eventos", cacheKey, "sin-mock", "tz-v2"], {
-    revalidate: 900,
+  return unstable_cache(loadEventosFromSource, ["agenda-eventos", cacheKey, "sin-mock", "tz-v3"], {
+    revalidate: 300,
   })()
 }
 

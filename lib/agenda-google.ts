@@ -2,7 +2,7 @@ import ical, { type VEvent } from "node-ical"
 import { addMonths, startOfDay, startOfMonth } from "date-fns"
 import type { EventoAgenda } from "@/lib/agenda"
 import { isDestacado, parseMinisterio } from "@/lib/agenda-ministerio"
-import { formatFechaAgenda, formatHoraAgenda } from "@/lib/agenda-timezone"
+import { formatFechaAgenda, formatHoraAgenda, getTodayAgendaDateStr } from "@/lib/agenda-timezone"
 
 function icalText(value: unknown): string {
   if (value == null) return ""
@@ -37,18 +37,15 @@ function toEventoAgenda(
   }
 }
 
-function expandEvent(
-  event: VEvent,
-  rangeStart: Date,
-  rangeEnd: Date,
-): Array<{ start: Date; evento: EventoAgenda }> {
+function expandEvent(event: VEvent, rangeEnd: Date): Array<{ start: Date; evento: EventoAgenda }> {
   const summary = icalText(event.summary)
   const location = icalText(event.location)
   const description = icalText(event.description)
 
   if (event.rrule) {
+    const todayStr = getTodayAgendaDateStr()
     const instances = ical.expandRecurringEvent(event, {
-      from: rangeStart,
+      from: new Date(`${todayStr}T00:00:00.000Z`),
       to: rangeEnd,
     })
 
@@ -66,11 +63,13 @@ function expandEvent(
     }))
   }
 
-  if (!event.start || event.start < rangeStart || event.start > rangeEnd) {
+  const isFullDay = event.datetype === "date"
+  const todayStr = getTodayAgendaDateStr()
+  const eventDateStr = formatFechaAgenda(event.start, isFullDay)
+
+  if (eventDateStr < todayStr || event.start > rangeEnd) {
     return []
   }
-
-  const isFullDay = event.datetype === "date"
 
   return [
     {
@@ -94,7 +93,7 @@ export async function fetchGoogleCalendarEvents(icalUrl: string): Promise<Evento
 
   const response = await fetch(url, {
     headers: { "User-Agent": "SomosLaVoz-Agenda/1.0" },
-    next: { revalidate: 900 },
+    next: { revalidate: 300 },
   })
 
   if (!response.ok) {
@@ -116,7 +115,7 @@ export async function fetchGoogleCalendarEvents(icalUrl: string): Promise<Evento
 
   for (const item of Object.values(calendar)) {
     if (!item || item.type !== "VEVENT") continue
-    rows.push(...expandEvent(item, today, rangeEnd))
+    rows.push(...expandEvent(item, rangeEnd))
   }
 
   if (rows.length === 0) {

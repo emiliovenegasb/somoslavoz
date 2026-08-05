@@ -4,7 +4,7 @@ import { AgendaPageClient } from "@/components/agenda-page-client"
 import { eventosInVisibleWindow } from "@/lib/agenda"
 import { getAgendaLoadResult, getUpcomingEventos } from "@/lib/agenda-server"
 
-export const revalidate = 900
+export const revalidate = 300
 
 export default async function AgendaPage() {
   const { source, error } = await getAgendaLoadResult()
