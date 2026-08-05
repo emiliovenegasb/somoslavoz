@@ -45,7 +45,6 @@ const footerLinks = {
     { label: "Nuestra historia", href: "/nuestra-historia" },
     { label: "Nuestros pastores", href: "/nuestros-lideres" },
     { label: "Lo que creemos", href: "/lo-que-creemos" },
-    { label: "Liderazgo", href: "/liderazgo" },
   ],
   connect: [
     { label: "Planifica tu visita", href: `#${UBICACION_ID}` },

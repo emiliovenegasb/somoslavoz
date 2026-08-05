@@ -158,6 +158,13 @@ export const ESCOGIDAS_INSTAGRAM_URL =
     "instagram",
   ) || "https://www.instagram.com/escogidastc/"
 
+/** Redes del segmento Jóvenes (página `/segmentos/jovenes`) */
+export const JOVENES_INSTAGRAM_URL =
+  normalizeSocialUrl(
+    process.env.NEXT_PUBLIC_JOVENES_INSTAGRAM_URL,
+    "instagram",
+  ) || "https://www.instagram.com/red_jovenestc/"
+
 /** Redes del Segmento Raíces (página `/segmentos/raices`) */
 export const RAICES_FACEBOOK_URL =
   normalizeSocialUrl(
