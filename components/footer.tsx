@@ -2,10 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import type { LucideIcon } from "lucide-react"
 import { Facebook, Instagram, Youtube, Twitter, Podcast, MapPin, Phone, Mail } from "lucide-react"
-import { UbicacionAnchor } from "@/components/ubicacion-link"
 import { FooterFormDialog } from "@/components/footer-form-dialog"
 import { SegmentRouteLink } from "@/components/segment-route-link"
-import { UBICACION_ID } from "@/lib/anchors"
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -48,8 +46,6 @@ const footerLinks = {
   ],
   connect: [
     { label: "Agenda", href: "/agenda" },
-    { label: "Planifica tu visita", href: `#${UBICACION_ID}` },
-    { label: "Ver en línea", href: "#watch" },
     { label: "Petición de oración", href: "#prayer" },
     { label: "Contáctanos", href: "#contact" },
   ],
@@ -153,11 +149,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.connect.map((link) => (
                 <li key={link.label}>
-                  {link.href === `#${UBICACION_ID}` ? (
-                    <UbicacionAnchor className="text-sm text-primary-foreground/60 hover:text-primary-foreground transition-colors">
-                      {link.label}
-                    </UbicacionAnchor>
-                  ) : link.href === "#prayer" ? (
+                  {link.href === "#prayer" ? (
                     <FooterFormDialog variant="prayer" />
                   ) : link.href === "#contact" ? (
                     <FooterFormDialog variant="contact" />
