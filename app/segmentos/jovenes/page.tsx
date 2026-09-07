@@ -4,7 +4,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { JOVENES_INSTAGRAM_URL } from "@/lib/site"
 
-const YOUNG_ADULTS_AGE_RANGE = "18 años en adelante"
 
 const YOUNG_ADULTS_PARAGRAPHS = [
   "En el segmento Jóvenes buscamos acompañar esta etapa con fundamento bíblico, guía espiritual y propósito para la vida diaria.",
@@ -33,12 +32,6 @@ export default function SegmentoJovenesPage() {
               >
                 Jóvenes
               </h1>
-
-              <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
-                  Rango de edad: {YOUNG_ADULTS_AGE_RANGE}
-                </span>
-              </div>
 
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 {YOUNG_ADULTS_PARAGRAPHS.map((paragraph) => (
@@ -89,13 +82,13 @@ export default function SegmentoJovenesPage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/jovenes.webp"
-                    alt="Jóvenes en comunidad"
+                    alt="Jóvenes reunidos"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Jóvenes ({YOUNG_ADULTS_AGE_RANGE}): fe que se vive, propósito que se construye.
+                  Jóvenes: fe que se vive, propósito que se construye.
                 </figcaption>
               </figure>
             </aside>

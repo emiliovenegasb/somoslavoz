@@ -4,11 +4,10 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { RED_HOMBRES_INSTAGRAM_URL } from "@/lib/site"
 
-const RED_HOMBRES_AGE_RANGE = "18 años en adelante"
 
 const RED_HOMBRES_PARAGRAPHS = [
   "La Red de Hombres es un espacio de la iglesia para crecer en fe, compañerismo y propósito según la palabra de Dios.",
-  "Acompañamos el desarrollo espiritual, fortalecemos el carácter y promovemos una vida con propósito para el hogar, la iglesia y la comunidad.",
+  "Acompañamos el desarrollo espiritual, fortalecemos el carácter y promovemos una vida con propósito para el hogar, la iglesia y quienes nos rodean.",
   "Buscamos que cada hombre afiance su relación con Cristo, aprenda a servir y viva una fe práctica y firme.",
 ]
 
@@ -33,12 +32,6 @@ export default function SegmentoRedHombresPage() {
               >
                 Red de Hombres
               </h1>
-
-              <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
-                  Rango de edad: {RED_HOMBRES_AGE_RANGE}
-                </span>
-              </div>
 
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 {RED_HOMBRES_PARAGRAPHS.map((paragraph) => (
@@ -95,8 +88,7 @@ export default function SegmentoRedHombresPage() {
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Red de Hombres ({RED_HOMBRES_AGE_RANGE}): un lugar para aprender, servir y
-                  crecer juntos.
+                  Red de Hombres: un lugar para aprender, servir y crecer juntos.
                 </figcaption>
               </figure>
             </aside>

@@ -76,7 +76,7 @@ export const SITE_NAME =
 /** Descripción corta (SEO, meta) */
 export const SITE_DESCRIPTION =
   trim(process.env.NEXT_PUBLIC_SITE_DESCRIPTION) ||
-  "Iglesia Somos la Voz — Templo Central. Cultos, comunidad y esperanza."
+  "Iglesia Somos la Voz — Templo Central. Cultos, compañerismo y esperanza."
 
 /** Dirección (pie de página, bloque “ubicación”) */
 export const SITE_ADDRESS =
@@ -86,7 +86,7 @@ export const SITE_ADDRESS =
 /** Eslogan corto bajo el nombre en el footer */
 export const SITE_TAGLINE =
   trim(process.env.NEXT_PUBLIC_SITE_TAGLINE) ||
-  "Un lugar donde la fe cobra vida, la comunidad se construye y todos son bienvenidos."
+  "Un lugar donde la fe cobra vida, la familia se construye y todos son bienvenidos."
 
 /**
  * Imagen lateral en `/lo-que-creemos`.
@@ -237,6 +237,6 @@ export const PASTORS_NAMES =
   trim(process.env.NEXT_PUBLIC_PASTORS_NAMES) ||
   "Felix Fuentes y Maria Ester Bravo"
 
-/** Cargo bajo los nombres (ej. Pastores principales) */
+/** Cargo bajo los nombres (ej. Pastores) */
 export const PASTORS_TITLE =
-  trim(process.env.NEXT_PUBLIC_PASTORS_TITLE) || "Pastores principales"
+  trim(process.env.NEXT_PUBLIC_PASTORS_TITLE) || "Pastores"

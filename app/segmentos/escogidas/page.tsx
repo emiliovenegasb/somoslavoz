@@ -4,7 +4,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ESCOGIDAS_INSTAGRAM_URL } from "@/lib/site"
 
-const ESCOGIDAS_AGE_RANGE = "18 años en adelante"
 
 const ESCOGIDAS_PARAGRAPHS = [
   "Escogidas es el segmento de mujeres donde crecemos en comunión, fe y propósito a la luz de la palabra de Dios.",
@@ -34,12 +33,6 @@ export default function SegmentoEscogidasPage() {
                 Escogidas
               </h1>
 
-              <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
-                  Rango de edad: {ESCOGIDAS_AGE_RANGE}
-                </span>
-              </div>
-
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 {ESCOGIDAS_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -55,7 +48,7 @@ export default function SegmentoEscogidasPage() {
                 </h2>
                 <ul className="space-y-3 text-base leading-relaxed text-muted-foreground">
                   <li>• Enseñanza bíblica para la vida diaria y el carácter.</li>
-                  <li>• Oración y tiempos de crecimiento espiritual en comunidad.</li>
+                  <li>• Oración y tiempos de crecimiento espiritual en compañerismo.</li>
                   <li>• Actividades que fortalecen la unidad y el acompañamiento.</li>
                   <li>• Servicio en la iglesia para vivir el propósito con amor.</li>
                 </ul>
@@ -89,13 +82,13 @@ export default function SegmentoEscogidasPage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/escogidas.webp"
-                    alt="Mujeres del segmento Escogidas en comunidad"
+                    alt="Mujeres del segmento Escogidas reunidas"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Escogidas ({ESCOGIDAS_AGE_RANGE}): un espacio para crecer en fe y comunión.
+                  Escogidas: un espacio para crecer en fe y comunión.
                 </figcaption>
               </figure>
             </aside>

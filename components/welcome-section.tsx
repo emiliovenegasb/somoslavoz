@@ -42,16 +42,10 @@ export function WelcomeSection() {
             </h2>
             
             <blockquote className="text-lg text-muted-foreground leading-relaxed mb-6 border-l-4 border-primary pl-6 italic">
-              «Creemos que cada persona tiene un propósito y estamos aquí para ayudarte a descubrir el
-              tuyo. En Templo Central encontrarás un lugar al que pertenecer, donde tu fe puede crecer y
-              donde puedes marcar la diferencia».
+              «En Templo Central encontrarás una familia donde podrás crecer, fortalecer tu fe y
+              descubrir el propósito que Dios tiene para tu vida. Creemos que juntos podemos marcar la
+              diferencia, amando a Dios por sobre todas las cosas».
             </blockquote>
-
-            <p className="text-muted-foreground leading-relaxed mb-8">
-              Ya sea que estés dando tus primeros pasos en la fe o busques una comunidad a la que llamar
-              hogar, te invitamos a unirte a nosotros. Juntos estamos construyendo algo hermoso: una
-              familia comprometida con amar a Dios y amar a las personas.
-            </p>
 
             <div className="flex items-center gap-4 mb-8">
               <div>

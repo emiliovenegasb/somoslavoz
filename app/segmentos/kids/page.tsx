@@ -8,7 +8,6 @@ import {
   KIDS_MINISTRY_YOUTUBE_URL,
 } from "@/lib/site"
 
-const KIDS_AGE_RANGE = "4 a 12 años"
 
 const KIDS_PARAGRAPHS = [
   "En el segmento Kids, los pequeños aprenden el amor de Dios en un ambiente divertido, seguro y lleno de alegría.",
@@ -44,12 +43,6 @@ export default function SegmentoKidsPage() {
                 Kids
               </h1>
 
-              <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
-                  Rango de edad: {KIDS_AGE_RANGE}
-                </span>
-              </div>
-
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 {KIDS_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -67,7 +60,7 @@ export default function SegmentoKidsPage() {
                   <li>• Enseñanza bíblica con actividades acordes a su edad.</li>
                   <li>• Momentos de alabanza y oración en un ambiente de confianza.</li>
                   <li>• Manualidades, juegos y aprendizaje práctico.</li>
-                  <li>• Acompañamiento para que conozcan a Jesús y crezcan en comunidad.</li>
+                  <li>• Acompañamiento para que conozcan a Jesús y crezcan en compañerismo.</li>
                 </ul>
               </div>
 
@@ -108,7 +101,7 @@ export default function SegmentoKidsPage() {
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Kids ({KIDS_AGE_RANGE}): un lugar donde la fe se aprende y se vive.
+                  Kids: un lugar donde la fe se aprende y se vive.
                 </figcaption>
               </figure>
             </aside>

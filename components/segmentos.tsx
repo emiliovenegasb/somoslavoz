@@ -46,7 +46,7 @@ const segmentos = [
   {
     title: "Raíces",
     description:
-      "Hombres y mujeres de 50 años en adelante: comunión, enseñanza y adoración.",
+      "Comunión, enseñanza y adoración para seguir creciendo en fe en esta etapa de la vida.",
     image: "/images/raices.webp",
     href: "/segmentos/raices",
     color: "bg-[#B45309]",

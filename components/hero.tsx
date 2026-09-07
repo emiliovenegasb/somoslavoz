@@ -14,7 +14,7 @@ export function Hero() {
   const [heroLoaded, setHeroLoaded] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 bg-foreground">
         <Image
@@ -25,49 +25,52 @@ export function Hero() {
           fetchPriority="high"
           sizes="100vw"
           quality={85}
-          className={`object-cover transition-opacity duration-700 ease-out ${
+          className={`object-cover object-[center_30%] sm:object-center transition-opacity duration-700 ease-out ${
             heroLoaded ? "opacity-100" : "opacity-0"
           }`}
           onLoad={() => setHeroLoaded(true)}
         />
         <div
-          className={`absolute inset-0 bg-gradient-to-b from-foreground/70 via-foreground/50 to-foreground/80 transition-opacity duration-700 ease-out ${
+          className={`absolute inset-0 bg-gradient-to-b from-foreground/75 via-foreground/55 to-foreground/85 transition-opacity duration-700 ease-out ${
             heroLoaded ? "opacity-100" : "opacity-90"
           }`}
         />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center pt-24">
-        <p className="text-primary/80 text-sm sm:text-base font-semibold tracking-widest uppercase mb-4" style={{ fontFamily: 'var(--font-heading)', color: 'white' }}>
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 pb-24 pt-20 text-center sm:px-6 sm:pb-28 sm:pt-24 lg:px-8">
+        <p
+          className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/90 sm:mb-4 sm:text-sm sm:tracking-widest"
+          style={{ fontFamily: "var(--font-heading)" }}
+        >
           Bienvenidos a Templo Central
         </p>
-        
-        <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight text-balance"
-          style={{ fontFamily: 'var(--font-heading)' }}
+
+        <h1
+          className="mb-5 text-[1.75rem] font-bold leading-[1.15] text-primary-foreground sm:mb-6 sm:text-5xl md:text-6xl lg:text-7xl"
+          style={{ fontFamily: "var(--font-heading)" }}
         >
-          Descubre esperanza.<br />
-          <span className="text-accent">Vive su amor.</span>
+          <span className="block">Descubre esperanza.</span>
+          <span className="block text-accent">Vive su amor.</span>
         </h1>
-        
-        <p className="text-lg sm:text-xl text-primary-foreground/80 max-w-2xl mx-auto mb-8 leading-relaxed">
-          Acompáñanos este domingo y sé parte de una comunidad donde la fe cobra vida.
-          Tu historia importa aquí.
+
+        <p className="mx-auto mb-6 max-w-2xl text-base leading-relaxed text-primary-foreground/85 sm:mb-8 sm:text-lg md:text-xl">
+          Acompáñanos este domingo y sé parte de una familia donde la fe cobra vida. Tu historia
+          importa aquí.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            size="lg" 
-            className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-lg font-semibold"
+        <div className="mx-auto flex w-full max-w-sm flex-col items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center sm:gap-4">
+          <Button
+            size="lg"
+            className="bg-accent px-6 py-5 text-base font-semibold text-accent-foreground hover:bg-accent/90 sm:px-8 sm:py-6 sm:text-lg"
             asChild
           >
             <UbicacionAnchor>Planifica tu visita</UbicacionAnchor>
           </Button>
-          <Button 
-            size="lg" 
-            variant="outline" 
-            className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground px-8 py-6 text-lg"
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-primary-foreground/30 bg-transparent px-6 py-5 text-base text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground sm:px-8 sm:py-6 sm:text-lg"
             asChild
           >
             <a
@@ -83,20 +86,24 @@ export function Hero() {
         </div>
 
         {/* Service Times Badge */}
-        <div className="mt-16 inline-flex items-center gap-4 bg-primary-foreground/10 backdrop-blur-sm rounded-full px-6 py-3 border border-primary-foreground/20">
+        <div className="mx-auto mt-8 flex max-w-md flex-col items-center gap-2 rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-3 backdrop-blur-sm sm:mt-16 sm:max-w-none sm:flex-row sm:gap-4 sm:rounded-full sm:px-6">
           <div className="flex items-center gap-2">
-            <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-primary-foreground/90 text-sm font-medium">Acompáñanos presencialmente o en línea</span>
+            <div className="h-2 w-2 shrink-0 rounded-full bg-accent animate-pulse" />
+            <span className="text-xs font-medium text-primary-foreground/90 sm:text-sm">
+              Acompáñanos presencialmente o en línea
+            </span>
           </div>
-          <span className="text-primary-foreground/60">|</span>
-          <span className="text-primary-foreground text-sm font-semibold">Miércoles 19:30 hrs. y domingo 10:30 hrs.</span>
+          <span className="hidden text-primary-foreground/60 sm:inline">|</span>
+          <span className="text-center text-xs font-semibold leading-snug text-primary-foreground sm:text-left sm:text-sm">
+            Miércoles 19:30 hrs. y domingo 10:30 hrs.
+          </span>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary-foreground/30 flex items-start justify-center p-2">
-          <div className="w-1 h-2 rounded-full bg-primary-foreground/50" />
+      <div className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 animate-bounce sm:block">
+        <div className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-primary-foreground/30 p-2">
+          <div className="h-2 w-1 rounded-full bg-primary-foreground/50" />
         </div>
       </div>
     </section>

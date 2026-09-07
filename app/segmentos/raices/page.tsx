@@ -4,7 +4,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { RAICES_FACEBOOK_URL } from "@/lib/site"
 
-const RAICES_AGE_RANGE = "50 años en adelante"
 
 const RAICES_PARAGRAPHS = [
   "Raíces es el espacio para hombres y mujeres de nuestra iglesia que desean seguir creciendo en fe, comunión y propósito en esta etapa de la vida.",
@@ -34,12 +33,6 @@ export default function SegmentoRaicesPage() {
                 Raíces
               </h1>
 
-              <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
-                  Rango de edad: {RAICES_AGE_RANGE}
-                </span>
-              </div>
-
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 {RAICES_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -54,7 +47,7 @@ export default function SegmentoRaicesPage() {
                   ¿Qué hacemos?
                 </h2>
                 <ul className="space-y-3 text-base leading-relaxed text-muted-foreground">
-                  <li>• Enseñanza bíblica y momentos de adoración en comunidad.</li>
+                  <li>• Enseñanza bíblica y momentos de adoración en compañerismo.</li>
                   <li>• Oración y compañía para caminar juntos en la fe.</li>
                   <li>• Actividades que fortalecen la unión y el servicio en la iglesia.</li>
                   <li>• Espacios para compartir vida, testimonio y esperanza en Cristo.</li>
@@ -95,7 +88,7 @@ export default function SegmentoRaicesPage() {
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Raíces ({RAICES_AGE_RANGE}): fe que profundiza y comunidad que sostiene.
+                  Raíces: fe que profundiza y compañerismo que sostiene.
                 </figcaption>
               </figure>
             </aside>

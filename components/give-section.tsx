@@ -19,7 +19,7 @@ export function GiveSection() {
             Tu ofrenda hace la diferencia
           </h2>
           <p className="text-primary-foreground/80 text-lg leading-relaxed mb-8">
-            Cada ofrenda nos ayuda a alcanzar a más personas con esperanza, servir a nuestra comunidad
+            Cada ofrenda nos ayuda a alcanzar a más personas con esperanza, servir a quienes nos rodean
             y compartir el mensaje del amor de Dios al mundo.
           </p>
 

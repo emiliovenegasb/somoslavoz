@@ -4,6 +4,6 @@ export const BELIEFS_PARAGRAPHS = [
   "Creemos que la Biblia es la Palabra de Dios, un mensaje vivo y verdadero que orienta nuestra vida, nos enseña, corrige y nos muestra el camino que debemos seguir.",
   "Reconocemos que todos necesitamos de Dios, porque como seres humanos cometemos errores y nos alejamos de su propósito. Por eso creemos en el amor y la gracia de Dios, quien nos ofrece una nueva oportunidad a través de Jesucristo.",
   "Creemos en el arrepentimiento como un paso de transformación personal, donde decidimos volvernos a Dios y comenzar una nueva vida.",
-  "Creemos en el bautismo como una expresión de fe y compromiso con Dios, y en el Espíritu Santo como quien guía, fortalece y acompaña nuestra vida diaria.",
-  "Finalmente, creemos que cada persona puede vivir una vida con propósito, creciendo en su relación con Dios y siendo parte de una comunidad que busca amar, servir y compartir esperanza.",
+  "Creemos en el bautismo en el nombre de Jesús como una expresión de fe y compromiso con Dios, y en el Espíritu Santo como quien guía, fortalece y acompaña nuestra vida diaria.",
+  "Finalmente, creemos que cada persona puede vivir una vida con propósito, creciendo en su relación con Dios y siendo parte de una familia de fe que busca amar, servir y compartir esperanza.",
 ]

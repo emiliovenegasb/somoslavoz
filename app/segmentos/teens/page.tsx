@@ -2,11 +2,10 @@ import Image from "next/image"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-const YOUTH_AGE_RANGE = "13 a 17 años"
 
 const YOUTH_PARAGRAPHS = [
   "En el segmento Teens fortalecemos la fe con enseñanzas bíblicas, tiempos de alabanza y actividades que ayudan a los adolescentes a crecer con propósito.",
-  "Acompañamos el proceso espiritual en cada etapa: aprendemos a tomar decisiones con base en la palabra de Dios y a construir amistades sanas en comunidad.",
+  "Acompañamos el proceso espiritual en cada etapa: aprendemos a tomar decisiones con base en la palabra de Dios y a construir amistades sanas en compañerismo.",
   "Nuestro objetivo es que cada joven conozca a Jesús, desarrolle una relación personal con Él y descubra cómo servir en la iglesia.",
 ]
 
@@ -32,12 +31,6 @@ export default function SegmentoTeensPage() {
                 Teens
               </h1>
 
-              <div className="mb-8 flex flex-wrap items-center gap-3">
-                <span className="inline-flex items-center rounded-full bg-primary/15 px-4 py-2 text-sm font-semibold text-primary">
-                  Rango de edad: {YOUTH_AGE_RANGE}
-                </span>
-              </div>
-
               <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
                 {YOUTH_PARAGRAPHS.map((paragraph) => (
                   <p key={paragraph}>{paragraph}</p>
@@ -55,7 +48,7 @@ export default function SegmentoTeensPage() {
                   <li>• Predicación y enseñanza bíblica enfocada en su etapa.</li>
                   <li>• Momentos de alabanza, oración y conversación guiada.</li>
                   <li>• Actividades que promueven compañerismo y crecimiento personal.</li>
-                  <li>• Oportunidades para servir y generar impacto en su comunidad.</li>
+                  <li>• Oportunidades para servir y generar impacto a su alrededor.</li>
                 </ul>
               </div>
             </article>
@@ -71,8 +64,7 @@ export default function SegmentoTeensPage() {
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Teens ({YOUTH_AGE_RANGE}): crecemos en fe, aprendemos a servir y caminamos
-                  juntos.
+                  Teens: crecemos en fe, aprendemos a servir y caminamos juntos.
                 </figcaption>
               </figure>
             </aside>
