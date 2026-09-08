@@ -86,7 +86,7 @@ export function Hero() {
         </div>
 
         {/* Service Times Badge */}
-        <div className="mx-auto mt-8 flex max-w-md flex-col items-center gap-2 rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-3 backdrop-blur-sm sm:mt-16 sm:max-w-none sm:flex-row sm:gap-4 sm:rounded-full sm:px-6">
+        <div className="mx-auto mt-8 flex w-fit max-w-full flex-col items-center justify-center gap-2 rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 px-4 py-3 backdrop-blur-sm sm:mt-16 sm:flex-row sm:gap-4 sm:rounded-full sm:px-6">
           <div className="flex items-center gap-2">
             <div className="h-2 w-2 shrink-0 rounded-full bg-accent animate-pulse" />
             <span className="text-xs font-medium text-primary-foreground/90 sm:text-sm">
@@ -94,7 +94,7 @@ export function Hero() {
             </span>
           </div>
           <span className="hidden text-primary-foreground/60 sm:inline">|</span>
-          <span className="text-center text-xs font-semibold leading-snug text-primary-foreground sm:text-left sm:text-sm">
+          <span className="text-center text-xs font-semibold leading-snug text-primary-foreground sm:text-sm">
             Miércoles 19:30 hrs. y domingo 10:30 hrs.
           </span>
         </div>
