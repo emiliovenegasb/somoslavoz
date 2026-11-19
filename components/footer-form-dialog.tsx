@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -44,12 +44,70 @@ const COPY = {
   },
 } as const
 
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() ?? ""
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (element: HTMLElement, options: Record<string, unknown>) => string
+      remove: (widgetId: string) => void
+    }
+  }
+}
+
+function safeFormError(value: unknown, fallback: string) {
+  if (typeof value !== "string") return fallback
+  const text = value.replace(/[<>]/g, "").trim()
+  if (!text || text.length > 180) return fallback
+  return text
+}
+
 export function FooterFormDialog({ variant, className }: FooterFormDialogProps) {
   const [open, setOpen] = useState(false)
   const [sent, setSent] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [captchaToken, setCaptchaToken] = useState("")
+  const captchaRef = useRef<HTMLDivElement>(null)
   const copy = COPY[variant]
+
+  useEffect(() => {
+    if (!open || sent || !TURNSTILE_SITE_KEY) return
+    let widgetId = ""
+    let cancelled = false
+
+    const render = () => {
+      if (cancelled || !captchaRef.current || !window.turnstile || widgetId) return
+      widgetId = window.turnstile.render(captchaRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: (token: string) => setCaptchaToken(token),
+        "expired-callback": () => setCaptchaToken(""),
+        "error-callback": () => setCaptchaToken(""),
+      })
+    }
+
+    const script = document.querySelector<HTMLScriptElement>(
+      'script[src*="challenges.cloudflare.com/turnstile"]',
+    )
+    if (window.turnstile) {
+      render()
+    } else if (script) {
+      script.addEventListener("load", render)
+    } else {
+      const created = document.createElement("script")
+      created.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+      created.async = true
+      created.addEventListener("load", render)
+      document.head.appendChild(created)
+    }
+
+    return () => {
+      cancelled = true
+      script?.removeEventListener("load", render)
+      if (widgetId && window.turnstile) window.turnstile.remove(widgetId)
+      setCaptchaToken("")
+    }
+  }, [open, sent])
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -63,6 +121,7 @@ export function FooterFormDialog({ variant, className }: FooterFormDialogProps) 
       email: String(formData.get(`${variant}-email`) ?? "").trim(),
       phone: String(formData.get(`${variant}-phone`) ?? "").trim(),
       message: String(formData.get(`${variant}-message`) ?? "").trim(),
+      captchaToken,
     }
 
     try {
@@ -79,10 +138,12 @@ export function FooterFormDialog({ variant, className }: FooterFormDialogProps) 
           error?: string
         }
         throw new Error(
-          data.error ||
-            (variant === "prayer"
+          safeFormError(
+            data.error,
+            variant === "prayer"
               ? "No se pudo enviar la petición."
-              : "No se pudo enviar el mensaje."),
+              : "No se pudo enviar el mensaje.",
+          ),
         )
       }
 
@@ -171,10 +232,17 @@ export function FooterFormDialog({ variant, className }: FooterFormDialogProps) 
                 placeholder={copy.messagePlaceholder}
               />
             </div>
+            {TURNSTILE_SITE_KEY ? (
+              <div ref={captchaRef} className="min-h-16" />
+            ) : null}
             {errorMessage ? (
               <p className="text-sm text-red-500">{errorMessage}</p>
             ) : null}
-            <Button type="submit" className="w-full" disabled={isSubmitting}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isSubmitting || (Boolean(TURNSTILE_SITE_KEY) && !captchaToken)}
+            >
               {isSubmitting ? "Enviando..." : copy.submit}
             </Button>
           </form>

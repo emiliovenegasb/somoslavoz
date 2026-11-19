@@ -1,3 +1,4 @@
+import { AgendaEventsJsonLd } from "@/components/agenda-events-json-ld"
 import { Header } from "@/components/header"
 import { pageMetadata } from "@/lib/seo"
 
@@ -15,6 +16,7 @@ export default async function AgendaPage() {
   const showCalendarNotice = source === "mock" || source === "fallback"
   return (
     <main className="min-h-screen bg-background">
+      <AgendaEventsJsonLd eventos={initialEventos} />
       <Header />
 
       <section className="pt-28 pb-20 lg:pb-24">

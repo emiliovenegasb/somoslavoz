@@ -125,7 +125,11 @@ export function Header() {
 
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <Button className="bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+            <Button
+              variant="outline"
+              className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              asChild
+            >
               <a href={DONATE_FLOW_URL} target="_blank" rel="noopener noreferrer">
                 Ofrenda ahora
               </a>
@@ -205,7 +209,11 @@ export function Header() {
               </div>
             ))}
             <div className="pt-4 flex flex-col gap-2">
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" asChild>
+              <Button
+                variant="outline"
+                className="w-full border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                asChild
+              >
                 <a href={DONATE_FLOW_URL} target="_blank" rel="noopener noreferrer">
                   Ofrenda ahora
                 </a>

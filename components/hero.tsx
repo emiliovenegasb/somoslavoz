@@ -10,7 +10,7 @@ import { Play } from "lucide-react"
 const VER_EN_VIVO_HREF =
   SOCIAL_YOUTUBE_URL || "https://www.youtube.com/@TemploCentralOficial"
 const HERO_IMAGE = "/images/fondo_main.webp"
-const HERO_VIDEO = "/videos/hero.mp4"
+const HERO_VIDEO = "/videos/hero.mp4?v=2"
 
 export function Hero() {
   const [heroLoaded, setHeroLoaded] = useState(false)

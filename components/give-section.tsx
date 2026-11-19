@@ -35,7 +35,12 @@ export function GiveSection() {
           </blockquote>
 
           <div className="flex justify-center">
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground px-8" asChild>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary-foreground/40 bg-transparent px-8 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              asChild
+            >
               <a href={DONATE_FLOW_URL} target="_blank" rel="noopener noreferrer">
                 Ofrenda ahora
               </a>

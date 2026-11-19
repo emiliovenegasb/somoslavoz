@@ -1,40 +1,5 @@
-import { NextResponse } from "next/server"
-import { appendLeadToGoogleSheet, isGoogleSheetWebhookConfigured } from "@/lib/append-lead-to-sheet"
-import { parseLeadFromJson } from "@/lib/lead-form"
+import { handleLeadPost } from "@/lib/form-guard"
 
 export async function POST(request: Request) {
-  try {
-    const body = (await request.json()) as Record<string, unknown>
-    const parsed = parseLeadFromJson(body)
-    if (!parsed.ok) {
-      return NextResponse.json({ error: parsed.error }, { status: 400 })
-    }
-
-    if (!isGoogleSheetWebhookConfigured()) {
-      return NextResponse.json(
-        {
-          error:
-            "Petición de oración no configurada. Añade GOOGLE_SHEETS_WEBAPP_URL en el servidor.",
-        },
-        { status: 503 },
-      )
-    }
-
-    const lead = parsed.lead
-    await appendLeadToGoogleSheet({
-      type: "prayer",
-      name: lead.name,
-      email: lead.email,
-      phone: lead.phone,
-      message: lead.message,
-    })
-
-    return NextResponse.json({ ok: true })
-  } catch (error) {
-    console.error("Error guardando petición de oración en Sheet:", error)
-    return NextResponse.json(
-      { error: "No se pudo enviar la petición por ahora." },
-      { status: 500 },
-    )
-  }
+  return handleLeadPost(request, "prayer")
 }

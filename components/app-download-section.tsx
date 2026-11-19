@@ -70,8 +70,9 @@ export function AppDownloadSection() {
                           src={slide.src}
                           alt={slide.alt}
                           fill
+                          sizes="212px"
                           className="object-cover"
-                          priority={index === 0}
+                          loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/30 to-black/55" />
                       </div>

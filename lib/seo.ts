@@ -1,4 +1,6 @@
 import type { Metadata, MetadataRoute } from "next"
+import { getAgendaTimezone } from "@/lib/agenda-timezone"
+import type { EventoAgenda } from "@/lib/agenda"
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -239,7 +241,7 @@ export function churchJsonLd() {
 
   return {
     "@context": "https://schema.org",
-    "@type": "Church",
+    "@type": ["Church", "Organization"],
     "@id": `${url}/#iglesia`,
     name: SITE_NAME,
     description: PAGE_SEO.home.description,
@@ -260,4 +262,108 @@ export function churchJsonLd() {
       description: service.description,
     })),
   }
+}
+
+const TIME_OF_DAY = /^([01]\d|2[0-3]):[0-5]\d$/
+
+/** Desfase de America/Santiago (u otra zona) en minutos, para una hora de pared. */
+function offsetMinutes(fecha: string, hora: string, timeZone: string): number {
+  const [year, month, day] = fecha.split("-").map(Number)
+  const [hour, minute] = hora.split(":").map(Number)
+  let utc = Date.UTC(year, month - 1, day, hour, minute, 0)
+
+  const readOffset = (instant: number) => {
+    const parts = Object.fromEntries(
+      new Intl.DateTimeFormat("en-US", {
+        timeZone,
+        hourCycle: "h23",
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      })
+        .formatToParts(new Date(instant))
+        .map((part) => [part.type, part.value]),
+    )
+    const asUtc = Date.UTC(
+      Number(parts.year),
+      Number(parts.month) - 1,
+      Number(parts.day),
+      Number(parts.hour) % 24,
+      Number(parts.minute),
+      Number(parts.second),
+    )
+    return (asUtc - instant) / 60000
+  }
+
+  utc -= readOffset(utc) * 60000
+  return readOffset(utc)
+}
+
+function isoWithOffset(fecha: string, hora: string): string {
+  const timeZone = getAgendaTimezone()
+  const offset = offsetMinutes(fecha, hora, timeZone)
+  const sign = offset >= 0 ? "+" : "-"
+  const abs = Math.abs(Math.trunc(offset))
+  const hours = String(Math.floor(abs / 60)).padStart(2, "0")
+  const minutes = String(abs % 60).padStart(2, "0")
+  return `${fecha}T${hora}:00${sign}${hours}:${minutes}`
+}
+
+function nextIsoDate(fecha: string): string {
+  const [year, month, day] = fecha.split("-").map(Number)
+  const date = new Date(Date.UTC(year, month - 1, day))
+  date.setUTCDate(date.getUTCDate() + 1)
+  return date.toISOString().slice(0, 10)
+}
+
+function eventLocation(lugar: string) {
+  const name = lugar.trim() || "Templo Central"
+  const atChurch = /templo central|tacora/i.test(name) || name === SITE_ADDRESS
+
+  return {
+    "@type": "Place" as const,
+    name,
+    ...(atChurch ? { address: postalAddress() } : {}),
+  }
+}
+
+/** Eventos visibles de la agenda. Sin hora de término no se inventa endDate. */
+export function agendaEventsJsonLd(eventos: EventoAgenda[]) {
+  const churchId = `${getSiteUrl()}/#iglesia`
+  const pageUrl = absoluteUrl("/agenda")
+
+  return eventos.flatMap((evento) => {
+    const name = evento.titulo.trim()
+    if (!name || !evento.fecha) return []
+
+    const allDay = !TIME_OF_DAY.test(evento.hora)
+    const startDate = allDay ? evento.fecha : isoWithOffset(evento.fecha, evento.hora)
+    const endDate =
+      !allDay && evento.horaFin && TIME_OF_DAY.test(evento.horaFin) && evento.horaFin !== evento.hora
+        ? isoWithOffset(
+            evento.horaFin < evento.hora ? nextIsoDate(evento.fecha) : evento.fecha,
+            evento.horaFin,
+          )
+        : undefined
+
+    return [
+      {
+        "@type": "Event" as const,
+        "@id": `${pageUrl}#${encodeURIComponent(evento.id)}`,
+        name,
+        ...(evento.descripcion ? { description: evento.descripcion } : {}),
+        startDate,
+        ...(endDate ? { endDate } : {}),
+        eventStatus: "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        inLanguage: "es-CL",
+        location: eventLocation(evento.lugar),
+        organizer: { "@id": churchId },
+        url: pageUrl,
+      },
+    ]
+  })
 }

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { AgendaEventsJsonLd } from "@/components/agenda-events-json-ld"
 import { Button } from "@/components/ui/button"
 import { AgendaPreviewCard } from "@/components/agenda-preview-card"
 import { getUpcomingEventos } from "@/lib/agenda-server"
@@ -11,6 +12,7 @@ export async function ThisWeekSection() {
 
   return (
     <section className="py-16 lg:py-24 bg-muted/40" id="agenda">
+      <AgendaEventsJsonLd eventos={eventos} />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
           <div>
