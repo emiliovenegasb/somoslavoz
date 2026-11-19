@@ -4,6 +4,8 @@ import { ThisWeekSection } from "@/components/this-week-section"
 import { WelcomeSection } from "@/components/welcome-section"
 import { HistorySection } from "@/components/history-section"
 import { ServiceTimes } from "@/components/service-times"
+import { FirstVisitSection } from "@/components/first-visit-section"
+import { CommunityGallery } from "@/components/community-gallery"
 import { Segmentos } from "@/components/segmentos"
 import { pageMetadata } from "@/lib/seo"
 
@@ -22,7 +24,9 @@ export default function Home() {
       <ThisWeekSection />
       <WelcomeSection />
       <HistorySection />
+      <FirstVisitSection />
       <ServiceTimes />
+      <CommunityGallery />
       <Segmentos />
       <GiveSection />
       <AppDownloadSection />

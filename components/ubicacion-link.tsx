@@ -9,7 +9,9 @@ export function scrollToUbicacion() {
   el.scrollIntoView({ behavior: "smooth", block: "start" })
 }
 
-type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
+type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  targetId?: string
+}
 
 /**
  * Enlace a la ubicación: Next.js App Router a veces no hace scroll con `<Link href="#...">`;
@@ -17,15 +19,19 @@ type AnchorProps = React.AnchorHTMLAttributes<HTMLAnchorElement>
  * No añadimos `#ubicacion` a la URL para que al refrescar la página no se quede fijo abajo.
  */
 export const UbicacionAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
-  function UbicacionAnchor({ className, onClick, children, ...props }, ref) {
+  function UbicacionAnchor(
+    { className, onClick, children, targetId = UBICACION_ID, ...props },
+    ref,
+  ) {
     return (
       <a
         ref={ref}
-        href={`#${UBICACION_ID}`}
+        href={`#${targetId}`}
         className={className}
         onClick={(e) => {
           e.preventDefault()
-          scrollToUbicacion()
+          const el = document.getElementById(targetId)
+          el?.scrollIntoView({ behavior: "smooth", block: "start" })
           onClick?.(e)
         }}
         {...props}

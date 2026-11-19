@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { UbicacionAnchor } from "@/components/ubicacion-link"
+import { PRIMERA_VISITA_ID } from "@/lib/anchors"
 import { SERVICE_HOURS_LABEL, SOCIAL_YOUTUBE_URL } from "@/lib/site"
 import { Play } from "lucide-react"
 
@@ -94,7 +95,7 @@ export function Hero() {
             className="bg-accent px-6 py-5 text-base font-semibold text-accent-foreground hover:bg-accent/90 sm:px-8 sm:py-6 sm:text-lg"
             asChild
           >
-            <UbicacionAnchor>Planifica tu visita</UbicacionAnchor>
+            <UbicacionAnchor targetId={PRIMERA_VISITA_ID}>Planifica tu visita</UbicacionAnchor>
           </Button>
           <Button
             size="lg"
