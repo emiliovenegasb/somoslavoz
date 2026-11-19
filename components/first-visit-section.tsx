@@ -1,14 +1,13 @@
-import { Clock, MapPin, Shirt, Users } from "lucide-react"
+import { BookOpen, MapPin, Shirt, Users } from "lucide-react"
 import Link from "next/link"
 import { UbicacionAnchor } from "@/components/ubicacion-link"
 import { PRIMERA_VISITA_ID } from "@/lib/anchors"
 
 const items = [
   {
-    icon: Clock,
-    title: "Duración",
-    body: "Domingo de 10:30 a 13:00 y miércoles de formación de 19:30 a 21:00. Si cambia una fecha, lo verás en la agenda.",
-    action: { href: "/agenda", label: "Ver la agenda" },
+    icon: BookOpen,
+    title: "Cómo es el culto",
+    body: "Cantamos, oramos y escuchamos un mensaje de la Biblia. Puedes participar como quieras; nadie te va a pedir nada.",
   },
   {
     icon: Shirt,
@@ -24,7 +23,7 @@ const items = [
   {
     icon: MapPin,
     title: "Estacionamiento",
-    body: "Estamos en Tacora 2573, Independencia, Santiago. En el mapa puedes ver las calles cercanas y elegir dónde dejar el auto.",
+    body: "Hay calles cercanas donde dejar el auto. Mira el mapa más abajo.",
     map: true,
   },
 ] as const
@@ -50,7 +49,7 @@ export function FirstVisitSection() {
             ¿Qué esperar en tu primera visita?
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Domingo a las 10:30 o miércoles a las 19:30. Llegas, te recibimos y participas a tu ritmo.
+            Llegas, te recibimos y participas a tu ritmo.
           </p>
         </div>
 

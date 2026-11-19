@@ -89,12 +89,14 @@ export const SERVICE_SCHEDULE = [
     day: "Miércoles",
     dayOfWeek: "Wednesday",
     time: "19:30",
+    ends: "21:00",
     description: "De formación",
   },
   {
     day: "Domingo",
     dayOfWeek: "Sunday",
     time: "10:30",
+    ends: "12:30",
     description: "Celebración",
   },
 ] as const

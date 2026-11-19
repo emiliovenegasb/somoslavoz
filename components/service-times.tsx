@@ -51,7 +51,7 @@ const serviceIcons = {
 
 const services = SERVICE_SCHEDULE.map((service) => ({
   day: service.day,
-  times: [`${service.time} hrs.`],
+  times: [`${service.time} a ${service.ends} hrs.`],
   description: service.description,
   icon: serviceIcons[service.day],
 }))
@@ -62,7 +62,7 @@ export function ServiceTimes() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 lg:mb-12">
           <span 
-            className="text-accent text-sm font-semibold tracking-widest uppercase"
+            className="text-[oklch(0.78_0.15_60)] text-sm font-semibold tracking-widest uppercase"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
             Acompáñanos
@@ -84,7 +84,7 @@ export function ServiceTimes() {
               key={service.day}
               className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-6 hover:bg-primary-foreground/10 transition-colors"
             >
-              <service.icon className="h-9 w-9 text-accent mb-3" />
+              <service.icon className="mb-3 h-9 w-9 text-[oklch(0.78_0.15_60)]" />
               <h3 
                 className="text-xl sm:text-2xl font-bold mb-1.5"
                 style={{ fontFamily: 'var(--font-heading)' }}
@@ -96,7 +96,7 @@ export function ServiceTimes() {
                 {service.times.map((time) => (
                   <span 
                     key={time}
-                    className="bg-accent/20 text-accent px-3 py-1.5 rounded-full text-sm font-semibold"
+                    className="rounded-full bg-primary-foreground/10 px-3 py-1.5 text-base font-semibold text-[oklch(0.78_0.15_60)]"
                   >
                     {time}
                   </span>
@@ -114,7 +114,7 @@ export function ServiceTimes() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-5">
             <div className="flex items-center gap-3 sm:gap-4">
               <div className="h-12 w-12 shrink-0 rounded-full bg-accent/20 flex items-center justify-center">
-                <MapPin className="h-5 w-5 text-accent" />
+                <MapPin className="h-5 w-5 text-[oklch(0.78_0.15_60)]" />
               </div>
               <div>
                 <h3 

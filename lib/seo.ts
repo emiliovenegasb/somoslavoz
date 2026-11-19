@@ -259,6 +259,7 @@ export function churchJsonLd() {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: service.dayOfWeek,
       opens: service.time,
+      closes: service.ends,
       description: service.description,
     })),
   }
