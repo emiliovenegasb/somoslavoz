@@ -7,11 +7,6 @@ const photos = [
     caption: "Culto",
   },
   {
-    src: "/images/comunidad/congregacion.webp",
-    alt: "Personas de la congregación de pie, cantando y aplaudiendo durante la reunión.",
-    caption: "La congregación",
-  },
-  {
     src: "/images/comunidad/alabanza.webp",
     alt: "Tres mujeres del equipo de alabanza cantando en el escenario.",
     caption: "Alabanza",
@@ -25,6 +20,11 @@ const photos = [
     src: "/images/comunidad/kids.webp",
     alt: "Niños sentados en la sala de Kids, acompañados por una maestra.",
     caption: "Kids",
+  },
+  {
+    src: "/images/comunidad/congregacion.webp",
+    alt: "Personas de la congregación de pie, cantando y aplaudiendo durante la reunión.",
+    caption: "La congregación",
   },
   {
     src: "/images/comunidad/ninos.webp?v=2",

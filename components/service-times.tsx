@@ -65,7 +65,7 @@ export function ServiceTimes() {
             className="text-[oklch(0.78_0.15_60)] text-sm font-semibold tracking-widest uppercase"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Acompáñanos
+            Te esperamos
           </span>
           <h2 
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-3 mb-4"
