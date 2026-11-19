@@ -2,7 +2,7 @@ import { unstable_cache } from "next/cache"
 import { isAfter, parseISO, startOfDay } from "date-fns"
 import { fetchCalendarFromWebApp } from "@/lib/agenda-apps-script"
 import { fetchGoogleCalendarEvents } from "@/lib/agenda-google"
-import { buildMockEvents, sortEventos, type EventoAgenda } from "@/lib/agenda"
+import { buildMockEvents, isEventoInterno, sortEventos, type EventoAgenda } from "@/lib/agenda"
 
 export type AgendaSource = "mock" | "google" | "fallback"
 
@@ -66,7 +66,7 @@ export async function getAgendaLoadResult(): Promise<AgendaLoadResult> {
 }
 
 export async function getAllEventos(): Promise<EventoAgenda[]> {
-  return (await getAgendaLoadResult()).eventos
+  return (await getAgendaLoadResult()).eventos.filter((evento) => !isEventoInterno(evento))
 }
 
 export async function getUpcomingEventos(limit?: number): Promise<EventoAgenda[]> {

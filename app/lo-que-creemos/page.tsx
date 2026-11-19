@@ -1,4 +1,7 @@
 import Image from "next/image"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata("creemos")
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { BELIEFS_PARAGRAPHS } from "@/lib/beliefs"

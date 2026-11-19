@@ -1,21 +1,33 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { UbicacionAnchor } from "@/components/ubicacion-link"
-import { SOCIAL_YOUTUBE_URL } from "@/lib/site"
+import { SERVICE_HOURS_LABEL, SOCIAL_YOUTUBE_URL } from "@/lib/site"
 import { Play } from "lucide-react"
 
-const VER_EN_VIVO_HREF = SOCIAL_YOUTUBE_URL || "/#radio"
+const VER_EN_VIVO_HREF =
+  SOCIAL_YOUTUBE_URL || "https://www.youtube.com/@TemploCentralOficial"
 const HERO_IMAGE = "/images/fondo_main.webp"
+const HERO_VIDEO = "/videos/hero.mp4"
 
 export function Hero() {
   const [heroLoaded, setHeroLoaded] = useState(false)
+  const [videoOn, setVideoOn] = useState(false)
+  const [videoReady, setVideoReady] = useState(false)
+
+  useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)")
+    const sync = () => setVideoOn(!media.matches)
+    sync()
+    media.addEventListener("change", sync)
+    return () => media.removeEventListener("change", sync)
+  }, [])
 
   return (
     <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background: still image, then the short loop on top */}
       <div className="absolute inset-0 bg-foreground">
         <Image
           src={HERO_IMAGE}
@@ -30,6 +42,23 @@ export function Hero() {
           }`}
           onLoad={() => setHeroLoaded(true)}
         />
+        {videoOn ? (
+          <video
+            className={`absolute inset-0 h-full w-full object-cover object-[center_30%] sm:object-center transition-opacity duration-700 ease-out ${
+              videoReady ? "opacity-100" : "opacity-0"
+            }`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={HERO_IMAGE}
+            aria-hidden="true"
+            onPlaying={() => setVideoReady(true)}
+          >
+            <source src={HERO_VIDEO} type="video/mp4" />
+          </video>
+        ) : null}
         <div
           className={`absolute inset-0 bg-gradient-to-b from-foreground/75 via-foreground/55 to-foreground/85 transition-opacity duration-700 ease-out ${
             heroLoaded ? "opacity-100" : "opacity-90"
@@ -93,9 +122,8 @@ export function Hero() {
               Acompáñanos presencialmente o en línea
             </span>
           </div>
-          <span className="hidden text-primary-foreground/60 sm:inline">|</span>
           <span className="text-center text-xs font-semibold leading-snug text-primary-foreground sm:text-sm">
-            Miércoles 19:30 hrs. y domingo 10:30 hrs.
+            {SERVICE_HOURS_LABEL}
           </span>
         </div>
       </div>

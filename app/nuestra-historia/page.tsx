@@ -1,4 +1,7 @@
 import Image from "next/image"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata("historia")
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { HISTORY_PARAGRAPHS } from "@/lib/history"
@@ -37,13 +40,13 @@ export default function NuestraHistoriaPage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/images/fundadores.webp"
-                    alt="Fundadores José Ignacio Fuentes y Graciela Donoso"
+                    alt="Fundadores: Apóstol José Ignacio Fuentes y su esposa Graciela Donoso"
                     fill
                     className="object-cover"
                   />
                 </div>
                 <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                  Fundadores: apóstol José Ignacio Fuentes y su esposa Graciela Donoso.
+                  Fundadores: Apóstol José Ignacio Fuentes y su esposa Graciela Donoso.
                 </figcaption>
               </figure>
             </aside>

@@ -44,13 +44,13 @@ export function HistorySection() {
               <div className="relative aspect-[4/3] w-full">
                 <Image
                   src="/images/fundadores.webp"
-                  alt="Fundadores José Ignacio Fuentes y Graciela Donoso"
+                  alt="Fundadores: Apóstol José Ignacio Fuentes y su esposa Graciela Donoso"
                   fill
                   className="object-cover"
                 />
               </div>
               <figcaption className="px-5 py-4 text-sm text-muted-foreground">
-                Fundadores: apóstol José Ignacio Fuentes y su esposa Graciela Donoso.
+                Fundadores: Apóstol José Ignacio Fuentes y su esposa Graciela Donoso.
               </figcaption>
             </figure>
           </aside>

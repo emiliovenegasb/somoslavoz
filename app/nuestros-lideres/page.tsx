@@ -1,4 +1,7 @@
 import Image from "next/image"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata("lideres")
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { LEADERS_PARAGRAPHS } from "@/lib/leaders"

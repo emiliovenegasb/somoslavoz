@@ -5,18 +5,16 @@ import { WelcomeSection } from "@/components/welcome-section"
 import { HistorySection } from "@/components/history-section"
 import { ServiceTimes } from "@/components/service-times"
 import { Segmentos } from "@/components/segmentos"
-import { WatchSection } from "@/components/watch-section"
-import { getRecentMessageCards } from "@/lib/site"
+import { pageMetadata } from "@/lib/seo"
 
-/** Lee miniaturas y textos desde `.env` en cada carga (no solo al hacer build). */
+export const metadata = pageMetadata("home")
+
 export const dynamic = "force-dynamic"
 import { GiveSection } from "@/components/give-section"
 import { AppDownloadSection } from "@/components/app-download-section"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
-  const recentMessages = getRecentMessageCards()
-
   return (
     <main className="min-h-screen">
       <Header />
@@ -26,7 +24,6 @@ export default function Home() {
       <HistorySection />
       <ServiceTimes />
       <Segmentos />
-      <WatchSection messages={recentMessages} />
       <GiveSection />
       <AppDownloadSection />
       <Footer />

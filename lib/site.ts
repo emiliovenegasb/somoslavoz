@@ -83,6 +83,24 @@ export const SITE_ADDRESS =
   trim(process.env.NEXT_PUBLIC_SITE_ADDRESS) ||
   "Tacora 2573, Independencia, Santiago, Chile"
 
+/** Cultos publicados en el sitio. El hero, los horarios y el JSON-LD usan esta lista. */
+export const SERVICE_SCHEDULE = [
+  {
+    day: "Miércoles",
+    dayOfWeek: "Wednesday",
+    time: "19:30",
+    description: "De formación",
+  },
+  {
+    day: "Domingo",
+    dayOfWeek: "Sunday",
+    time: "10:30",
+    description: "Celebración",
+  },
+] as const
+
+export const SERVICE_HOURS_LABEL = `${SERVICE_SCHEDULE[0].day} ${SERVICE_SCHEDULE[0].time} hrs. y ${SERVICE_SCHEDULE[1].day.toLowerCase()} ${SERVICE_SCHEDULE[1].time} hrs.`
+
 /** Eslogan corto bajo el nombre en el footer */
 export const SITE_TAGLINE =
   trim(process.env.NEXT_PUBLIC_SITE_TAGLINE) ||
@@ -232,10 +250,16 @@ export const MAPS_WAZE_URL =
   trim(process.env.NEXT_PUBLIC_MAPS_WAZE_URL) ||
   `https://waze.com/ul?q=${encodeURIComponent(SITE_ADDRESS)}`
 
-/** Nombres de los pastores (sección de bienvenida) */
+/** Nombres de los pastores. La forma sin tildes se corrige para que el alt y el texto visible coincidan. */
+const PASTORS_NAMES_CANONICAL = "Félix Fuentes y María Ester Bravo"
+const pastorsNamesFromEnv = trim(process.env.NEXT_PUBLIC_PASTORS_NAMES)
+const pastorsNamesSinTildes = pastorsNamesFromEnv
+  ?.normalize("NFD")
+  .replace(/\p{M}/gu, "")
 export const PASTORS_NAMES =
-  trim(process.env.NEXT_PUBLIC_PASTORS_NAMES) ||
-  "Felix Fuentes y Maria Ester Bravo"
+  !pastorsNamesFromEnv || pastorsNamesSinTildes === "Felix Fuentes y Maria Ester Bravo"
+    ? PASTORS_NAMES_CANONICAL
+    : pastorsNamesFromEnv
 
 /** Cargo bajo los nombres (ej. Pastores) */
 export const PASTORS_TITLE =

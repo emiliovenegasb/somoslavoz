@@ -1,7 +1,7 @@
 import { Clock, MapPin, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { UBICACION_ID } from "@/lib/anchors"
-import { MAPS_GOOGLE_URL, MAPS_WAZE_URL, SITE_ADDRESS } from "@/lib/site"
+import { MAPS_GOOGLE_URL, MAPS_WAZE_URL, SERVICE_SCHEDULE, SITE_ADDRESS } from "@/lib/site"
 
 function GoogleMapsIcon({ className }: { className?: string }) {
   return (
@@ -44,20 +44,17 @@ function WazeIcon({ className }: { className?: string }) {
   )
 }
 
-const services = [
-  {
-    day: "Miércoles",
-    times: ["19:30 hrs."],
-    description: "De formación",
-    icon: Clock,
-  },
-  {
-    day: "Domingo",
-    times: ["10:30 hrs."],
-    description: "Celebración",
-    icon: Calendar,
-  },
-]
+const serviceIcons = {
+  Miércoles: Clock,
+  Domingo: Calendar,
+} as const
+
+const services = SERVICE_SCHEDULE.map((service) => ({
+  day: service.day,
+  times: [`${service.time} hrs.`],
+  description: service.description,
+  icon: serviceIcons[service.day],
+}))
 
 export function ServiceTimes() {
   return (

@@ -5,6 +5,7 @@ import {
   MINISTERIO_COLORS,
   formatDiaNumero,
   formatHoraEvento,
+  formatMesCorto,
 } from "@/lib/agenda"
 
 function formatDiaCorto(fecha: string): string {
@@ -23,6 +24,9 @@ export function AgendaPreviewCard({ evento }: { evento: EventoAgenda }) {
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {formatDiaNumero(evento.fecha)}
+        </span>
+        <span className="mt-1 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+          {formatMesCorto(evento.fecha)}
         </span>
       </div>
       <div className="min-w-0 flex-1">

@@ -156,6 +156,11 @@ export function buildMockEvents(): EventoAgenda[] {
   ]
 }
 
+/** Eventos internos del calendario: el título empieza por *. No se publican en la web. */
+export function isEventoInterno(evento: Pick<EventoAgenda, "titulo">): boolean {
+  return evento.titulo.trimStart().startsWith("*")
+}
+
 export function sortEventos(eventos: EventoAgenda[]): EventoAgenda[] {
   return [...eventos].sort((a, b) => {
     const horaA = a.hora === "Todo el día" ? "00:00" : a.hora
@@ -206,6 +211,10 @@ export function formatDiaSemana(fecha: string): string {
 
 export function formatDiaNumero(fecha: string): string {
   return format(parseISO(fecha), "d")
+}
+
+export function formatMesCorto(fecha: string): string {
+  return format(parseISO(fecha), "MMM", { locale: es }).replace(/\./g, "").toUpperCase()
 }
 
 export function formatHoraEvento(hora: string, horaFin?: string): string {

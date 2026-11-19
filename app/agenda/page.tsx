@@ -1,4 +1,7 @@
 import { Header } from "@/components/header"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata("agenda")
 import { Footer } from "@/components/footer"
 import { AgendaPageClient } from "@/components/agenda-page-client"
 import { eventosInVisibleWindow } from "@/lib/agenda"

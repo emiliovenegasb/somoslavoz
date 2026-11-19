@@ -3,15 +3,42 @@ import Image from "next/image"
 import { APPLE_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/site"
 
 const APP_SLIDES = [
-  "/images/app-slides/slide-1.webp",
-  "/images/app-slides/slide-2.webp",
-  "/images/app-slides/slide-3.webp",
-  "/images/app-slides/slide-4.webp",
-  "/images/app-slides/slide-5.webp",
-  "/images/app-slides/slide-6.webp",
-  "/images/app-slides/slide-7.webp",
-  "/images/app-slides/slide-8.webp",
-  "/images/app-slides/slide-9.webp",
+  {
+    src: "/images/app-slides/slide-1.webp",
+    alt: "Inicio de la app: culto en vivo, Quiénes somos y un mensaje del Obispo Félix Fuentes.",
+  },
+  {
+    src: "/images/app-slides/slide-2.webp",
+    alt: "Menú de la app: Inicio, Generosidad, Formulario de oración, Escúchanos, Segmentos, Eventos y Quieres servir.",
+  },
+  {
+    src: "/images/app-slides/slide-3.webp",
+    alt: "Pantalla Quiénes somos de la app, con Historia, Visión y Líderes.",
+  },
+  {
+    src: "/images/app-slides/slide-4.webp",
+    alt: "Pantalla Generosidad de la app, con datos para transferencias y el botón Donar.",
+  },
+  {
+    src: "/images/app-slides/slide-5.webp",
+    alt: "Formulario de oración de la app.",
+  },
+  {
+    src: "/images/app-slides/slide-6.webp",
+    alt: "Pantalla Escúchanos de la app, con Podcast y Alabanzas.",
+  },
+  {
+    src: "/images/app-slides/slide-7.webp",
+    alt: "Pantalla de ministerios de la app, con Kids y Teens.",
+  },
+  {
+    src: "/images/app-slides/slide-8.webp",
+    alt: "Pantalla de eventos de la app, con la convención nacional.",
+  },
+  {
+    src: "/images/app-slides/slide-9.webp",
+    alt: "Formulario Quieres servir de la app.",
+  },
 ]
 const SLIDE_SECONDS = 3.2
 const TOTAL_ANIMATION_SECONDS = APP_SLIDES.length * SLIDE_SECONDS
@@ -32,7 +59,7 @@ export function AppDownloadSection() {
                   <div className="relative h-full w-full bg-[#1b4dbf]">
                     {APP_SLIDES.map((slide, index) => (
                       <div
-                        key={slide}
+                        key={slide.src}
                         className="app-phone-slide absolute inset-0"
                         style={{
                           animationDelay: `${index * SLIDE_SECONDS}s`,
@@ -40,8 +67,8 @@ export function AppDownloadSection() {
                         }}
                       >
                         <Image
-                          src={slide}
-                          alt=""
+                          src={slide.src}
+                          alt={slide.alt}
                           fill
                           className="object-cover"
                           priority={index === 0}
@@ -97,7 +124,7 @@ export function AppDownloadSection() {
                 >
                   <Image
                     src="/badge-app-store-clean.webp"
-                    alt=""
+                    alt="Descargar en App Store"
                     width={638}
                     height={214}
                     className="pointer-events-none h-12 w-auto"
@@ -108,11 +135,11 @@ export function AppDownloadSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex"
-                  aria-label="Descargar en Google Play"
+                  aria-label="Disponible en Google Play"
                 >
                   <Image
                     src="/badge-google-play-clean.webp"
-                    alt=""
+                    alt="Disponible en Google Play"
                     width={424}
                     height={141}
                     className="pointer-events-none h-12 w-auto"

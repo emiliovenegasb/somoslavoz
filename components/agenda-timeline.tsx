@@ -4,6 +4,7 @@ import {
   formatDiaNumero,
   formatDiaSemana,
   formatHoraEvento,
+  formatMesCorto,
   groupEventosByMonth,
 } from "@/lib/agenda"
 
@@ -28,6 +29,9 @@ function TimelineEvent({ evento }: { evento: EventoAgenda }) {
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {formatDiaNumero(evento.fecha)}
+        </span>
+        <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+          {formatMesCorto(evento.fecha)}
         </span>
       </div>
 

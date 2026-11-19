@@ -1,4 +1,7 @@
 import Image from "next/image"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata("raices")
 import { Facebook } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"

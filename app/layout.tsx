@@ -1,8 +1,10 @@
 import type { Metadata } from 'next'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ChurchJsonLd } from '@/components/church-json-ld'
 import { HomeScrollRestore } from '@/components/home-scroll-restore'
-import { SITE_DESCRIPTION, SITE_NAME } from '@/lib/site'
+import { getSiteUrl, PAGE_SEO } from '@/lib/seo'
+import { SITE_NAME } from '@/lib/site'
 import './globals.css'
 
 const montserrat = Montserrat({ 
@@ -18,11 +20,12 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(getSiteUrl()),
   title: {
-    default: `${SITE_NAME} | Inicio`,
+    default: `${SITE_NAME} | ${PAGE_SEO.home.title}`,
     template: `%s | ${SITE_NAME}`,
   },
-  description: SITE_DESCRIPTION,
+  description: PAGE_SEO.home.description,
   icons: {
     icon: [{ url: '/icon.webp', type: 'image/webp' }],
     apple: [{ url: '/apple-icon.webp', type: 'image/webp' }],
@@ -46,6 +49,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <ChurchJsonLd />
         <HomeScrollRestore />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

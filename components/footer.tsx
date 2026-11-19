@@ -61,9 +61,6 @@ const footerLinks = {
 
 function footerResourceLinks() {
   return [
-    { label: "Sermones", href: "/#messages" },
-    { label: "Prédicas", href: SOCIAL_SPOTIFY_URL || "#podcasts" },
-    { label: "Radio", href: "/#radio" },
     { label: "App", href: "/#app" },
   ] as const
 }
@@ -221,17 +218,19 @@ export function Footer() {
             
             {/* Social Links */}
             {socialNav.length > 0 ? (
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 md:justify-end">
                 {socialNav.map((social) => (
                   <Link
                     key={social.label}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-full bg-primary-foreground/10 flex items-center justify-center text-primary-foreground/70 hover:bg-primary hover:text-primary-foreground transition-colors"
-                    aria-label={social.label}
+                    className="inline-flex items-center gap-2 text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                   >
-                    <social.icon className="h-5 w-5" />
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10">
+                      <social.icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+                    {social.label}
                   </Link>
                 ))}
               </div>
